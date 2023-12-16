@@ -1,0 +1,89 @@
+#main-grid-view button {
+    min-width: 100px
+}
+
+.flex-field-half-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 80%;
+    margin: 0 auto 32px;
+    max-width: 600px
+}
+
+h2.form-heading {
+    text-align: center;
+    font-size: 30px
+}
+
+.multiselect-field {
+    text-align: left;
+    width: 90%;
+    margin: 0 auto 32px;
+    max-width: 600px;
+    &.invalid {
+        & input, & select {
+            border: solid red
+        }
+        & label {
+            color: red
+        }
+    }
+}
+
+.flex-field {
+    display: flex;
+    flex-direction: column;
+    & :not([type=checkbox]) {
+        align-items: start
+    }
+    & [type=checkbox] {
+        align-items: center
+    }
+    justify-content: space-between;
+    width: 90%;
+    margin: 0 auto 32px;
+    max-width: 600px;
+    &.invalid {
+        & input, & select {
+            border: solid red
+        }
+        & label {
+            color: red
+        }
+    }
+    &.half {
+        justify-content: center;
+        width: 60%;
+        margin: 0;
+        max-width: 250px;
+        & input {
+            margin-bottom: 4px;
+            padding: 8px;
+            box-sizing: border-box;
+            font-size: 16px;
+            width: 100%;
+            &[type=checkbox] {
+                transform: scale(1.5);
+                margin-right: 4px;
+                width: unset
+            }
+        }
+    }
+    & > input, & > select {
+        width: 100%;
+        margin-bottom: 4px;
+        padding: 8px;
+        box-sizing: border-box;
+        font-size: 16px;
+        & optgroup {
+            font-style: normal
+        }
+    }
+    & > select {
+        background: rgb(128 128 128 / 0.06);
+        & :checked:not(value="") {
+            color: green
+        }
+    }
+}

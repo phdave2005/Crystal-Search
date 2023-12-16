@@ -1,0 +1,8 @@
+main#about {
+  background: #fff;
+  padding: 4px;
+  & p {
+    color: #000!important;
+    text-align: left
+  }
+}
