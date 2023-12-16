@@ -336,7 +336,7 @@ class Home extends Component {
                 validate: (v, r) => {
                     let valid = false, split;
                     if (!!r && r.match(/^_exptl_crystal_density_diffrn/i)) {
-                        split = r.toLowerCase().replace(/\'/g).split(" ");
+                        split = r.toLowerCase().replace(/'/g).split(" ");
                         valid = split.indexOf(v.toLowerCase()) !== -1;
                     }
                     return valid;
@@ -344,12 +344,11 @@ class Home extends Component {
             },
             mindate: {
                 allowedIndex: (ind) => {
-                    return ind == 1;
+                    return ind === 1;
                 },
                 validate: (v, r) => {
-                    let valid = false, split;
+                    let valid = false;
                     if (!!r && r.match(/^Date:/i)) {
-                        split = r.split(" ");
                         valid = new Date() >= new Date(v);
                     }
                     return valid;
@@ -357,7 +356,7 @@ class Home extends Component {
             },
             maxdate: {
                 allowedIndex: (ind) => {
-                    return ind == 1;
+                    return ind === 1;
                 },
                 validate: (v, r) => {
                     return false;
@@ -740,7 +739,7 @@ class Home extends Component {
                             <FiltersForm class={this.state.forms.sections.filters.show ? 'active' : 'DN'} language={this.language} />
                             <button type="submit" className="DN"></button>
                         </form>
-                        <a id="download" className="DN"></a>
+                        <a href="" id="download" className="DN">-</a>
                     </div>
                 </div>
             </main>

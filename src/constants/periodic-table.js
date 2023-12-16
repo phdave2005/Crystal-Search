@@ -287,7 +287,9 @@ export const ELEMENTS = [
 	{ family: 8, symbol: 'Lr', label: 'Lawrencium' }
 ];
 
-export default {
+export const PERIODIC_TABLE_DATA = {
 	ELEMENT_FAMILIES,
 	ELEMENTS
 };
+
+export default PERIODIC_TABLE_DATA;

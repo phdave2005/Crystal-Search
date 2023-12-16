@@ -242,7 +242,9 @@ export const SPACE_GROUPS = [
   { id: 'sg230', lattice: 'Cubic', spacegroup: 'I 4/a -3 2/d', label: 'Ia3\u0305d'}
 ];
 
-export default {
+export const SPACE_GROUP_DATA = {
   BRAVAIS_LATTICES,
   SPACE_GROUPS
 };
+
+export default SPACE_GROUP_DATA;

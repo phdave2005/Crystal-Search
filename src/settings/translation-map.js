@@ -68,7 +68,9 @@ export const TEXT_MAP = {
     }
 };
 
-export default {
+export const LANGUAGE_INFO = {
     LANGUAGES,
     TEXT_MAP
 };
+
+export default LANGUAGE_INFO;

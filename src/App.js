@@ -19,15 +19,15 @@ const App = () => {
         },
         es: {
             about: 'Acerca de DVP',
-            about: 'Acerca de COD'
+            aboutCod: 'Acerca de COD'
         },
         fr: {
             about: 'À propos DVP',
-            about: 'À propos COD'
+            aboutCod: 'À propos COD'
         },
         it: {
             about: 'Di DVP',
-            about: 'Di COD'
+            aboutCod: 'Di COD'
         }
     };
     const language =  window?.localStorage?.getItem("language-used") || 'en';
@@ -58,11 +58,11 @@ const App = () => {
                 </Routes>
                 <footer className="flex-align-center">
                     <span className="ML4">
-                        <a href="https://twitter.com/phdave2005?ref_src=twsrc%5Etfw" target="_blank"><FontAwesomeIcon icon={faXTwitter} /></a>
+                        <a href="https://twitter.com/phdave2005?ref_src=twsrc%5Etfw" target="_blank" rel="noreferrer"><FontAwesomeIcon icon={faXTwitter} /></a>
                     </span>
                     <span>&copy;{new Date().getFullYear()} <a href="https://phdave.com" target="_blank" rel="noreferrer">PhDave LLC</a></span>
                     <span>
-                        <a href="https://www.crystallography.net/cod/" target="_blank">{state.aboutCod}</a>
+                        <a id="about-cod" href="https://www.crystallography.net/cod/" target="_blank" rel="noreferrer">{state.aboutCod}</a>
                     </span>
                     <span className="MR4">
                         <Link id="about" to="/about">{state.about}</Link>
