@@ -5,7 +5,7 @@ import { faCircleQuestion } from '@fortawesome/free-solid-svg-icons'
 
 function HelpIcon(props) {
 	return (
-		<Link to="/help" className="action-icon">
+		<Link to="/crystal-search/help" className="action-icon">
 			<FontAwesomeIcon icon={faCircleQuestion} />
 		</Link>
 	);

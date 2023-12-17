@@ -5,12 +5,12 @@ import { faGear, faHouse } from '@fortawesome/free-solid-svg-icons'
 
 function SettingsToggle(props) {
 	const location = useLocation();
-	const config = location.pathname.match(/\/.+$/i) ? {
-		destination: '/',
-		icon: faHouse
-	} : {
-		destination: '/settings',
+	const config = location.pathname.match(/\/crystal-search\/?$/i) ? {
+		destination: '/crystal-search/settings',
 		icon: faGear
+	} : {
+		destination: '/crystal-search',
+		icon: faHouse
 	};
 	return (
 		<Link to={config.destination} className="action-icon">

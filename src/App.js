@@ -51,10 +51,10 @@ const App = () => {
                     </div>
                 </header>
                 <Routes>
-                    <Route path="/" element={<Home />} />
-                    <Route path="/help" element={<Help />} />
-                    <Route path="/settings" element={<Settings />} />
-                    <Route path="/about" element={<About />} />
+                    <Route path="/crystal-search" element={<Home />} />
+                    <Route path="/crystal-search/help" element={<Help />} />
+                    <Route path="/crystal-search/settings" element={<Settings />} />
+                    <Route path="/crystal-search/about" element={<About />} />
                 </Routes>
                 <footer className="flex-align-center">
                     <span className="ML4">
@@ -65,7 +65,7 @@ const App = () => {
                         <a id="about-cod" href="https://www.crystallography.net/cod/" target="_blank" rel="noreferrer">{state.aboutCod}</a>
                     </span>
                     <span className="MR4">
-                        <Link id="about" to="/about">{state.about}</Link>
+                        <Link id="about" to="/crystal-search/about">{state.about}</Link>
                     </span>
                 </footer>
             </div>
