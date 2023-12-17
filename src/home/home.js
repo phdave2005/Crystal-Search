@@ -20,9 +20,6 @@ class Home extends Component {
         this.language = window?.localStorage?.getItem("language-used") || 'en';
 		this.textUsed = TEXT_MAP[this.language];
         this.state = {
-            search: {
-                processing: false
-            },
             forms: {
                 active: 'formula',
                 sections: {
@@ -62,10 +59,15 @@ class Home extends Component {
     }
 
     search = () => {
-        if (!this.invalidateFormActiveSection()) {
+        if (!this.isProcessing() && !this.invalidateFormActiveSection()) {
             document.getElementById("parameters-form").getElementsByTagName("BUTTON")[0].click();
         }
     }
+
+    isProcessing = () => {
+        const el = document.getElementById("processing-container");
+        return !!el && !el.classList.contains("DN");
+    };
 
     processFormSubmission = (e) => {
         e.preventDefault();
@@ -655,7 +657,7 @@ class Home extends Component {
 
     render() {
         const processMenuClick = (e) => {
-            if (!this.invalidateFormActiveSection()) {
+            if (!this.isProcessing() && !this.invalidateFormActiveSection()) {
                 e.preventDefault();
                 let newFormState = this.state.forms.sections,
                     i;
@@ -682,21 +684,23 @@ class Home extends Component {
             }
         };
         const resetForm = () => {
-            const form = document.getElementById("parameters-form");
-            const activeSection = form.getElementsByClassName("active");
-            if (activeSection?.length === 1) {
-                const fields = activeSection[0].getElementsByClassName("flex-field");
-                let i;
-                for(i in fields) {
-                    if (fields[i]?.nodeName) {
-                        fields[i].classList.remove("invalid");
-                        fields[i].getElementsByClassName("default-label")[0].classList.remove("DN");
-                        fields[i].getElementsByClassName("error-label")[0].classList.add("DN");
-                        fields[i].getElementsByClassName("error-label-text")[0].innerHTML = '';
+            if (!this.isProcessing()) {
+                const form = document.getElementById("parameters-form");
+                const activeSection = form.getElementsByClassName("active");
+                if (activeSection?.length === 1) {
+                    const fields = activeSection[0].getElementsByClassName("flex-field");
+                    let i;
+                    for(i in fields) {
+                        if (fields[i]?.nodeName) {
+                            fields[i].classList.remove("invalid");
+                            fields[i].getElementsByClassName("default-label")[0].classList.remove("DN");
+                            fields[i].getElementsByClassName("error-label")[0].classList.add("DN");
+                            fields[i].getElementsByClassName("error-label-text")[0].innerHTML = '';
+                        }
                     }
                 }
+                form.reset();
             }
-            form.reset();
         }
         const buttonParameters = [
             { id: 0, text: this.textUsed.menu.button.formula, icon: faAtom, class: 'form', identifier: 'formula', fn: processMenuClick },
@@ -717,7 +721,7 @@ class Home extends Component {
                             buttonParameters.map(parameter => {
                                 return (
                                     <li key={'navbutton' + parameter.id}>
-                                        <button type="button" className={parameter.class + (this.state.search.processing ? ' pointer-events-none' : '')} data-identifier={parameter.identifier} data-testid={parameter.identifier + '-button'} onClick={parameter.fn}>
+                                        <button type="button" className={parameter.class} data-identifier={parameter.identifier} data-testid={parameter.identifier + '-button'} onClick={parameter.fn}>
                                             <FontAwesomeIcon icon={parameter.icon} />
                                             <span>{parameter.text}</span>
                                         </button>
@@ -729,7 +733,7 @@ class Home extends Component {
                     </div>
                     <div id="main-grid-view">
                         <p className={"dialog " + this.state.forms.validation.error.cl} data-identifier="info">{this.state.forms.validation.error.text}</p>
-                        <p className={this.state.forms.validation.processing.cl} data-identifier="info"><img className="scale-2" src={processing} alt="processing" data-testid="processing" /></p>
+                        <p id="processing-container" className={this.state.forms.validation.processing.cl} data-identifier="info"><img className="scale-2" src={processing} alt="processing" data-testid="processing" /></p>
                         <form id="parameters-form" data-testid="form" onSubmit={this.processFormSubmission}>
                             <h2 className="form-heading">{this.state.forms.sections[this.state.forms.active].heading}</h2>
                             <FormulaForm class={this.state.forms.sections.formula.show ? 'active' : 'DN'} language={this.language} />
