@@ -99,6 +99,11 @@ h1 {
   display: none
 }
 
+.main-wrapper {
+	max-width: 1000px;
+	margin: auto
+}
+
 .M0 {
   margin: 0
 }

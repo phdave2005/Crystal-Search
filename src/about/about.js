@@ -20,11 +20,13 @@ class About extends Component {
   	render() {
 		return ( 
 			<main id="about">
-				<h1>{this.state.text.heading}</h1>
-				<div>
-					<img src={dvp} alt="DVP" />
-					<p dangerouslySetInnerHTML={{__html: '&emsp;' + this.state.text.content}}></p>
-				</div>
+				<section className="main-wrapper">
+					<h1>{this.state.text.heading}</h1>
+					<div>
+						<img src={dvp} alt="DVP" />
+						<p dangerouslySetInnerHTML={{__html: '&emsp;' + this.state.text.content}}></p>
+					</div>
+				</section>
 			</main>
 		);
   	}

@@ -120,19 +120,21 @@ class Settings extends Component {
 	render() {
 		return ( 
 			<main id="settings">
-				<div className={this.state.view.storage.cl}>
-					<h1 dangerouslySetInnerHTML={{__html: this.state.view.storage.text}}></h1>
-					<div className="flex-field MT32">
-						<select id="language-used" className="field">
-							{this.languageOptions()}
-						</select>
-						<LabelElement labelFor={'language-used'} text={this.state.text.label} />
+				<section className="main-wrapper">
+					<div className={this.state.view.storage.cl}>
+						<h1 dangerouslySetInnerHTML={{__html: this.state.view.storage.text}}></h1>
+						<div className="flex-field MT32">
+							<select id="language-used" className="field">
+								{this.languageOptions()}
+							</select>
+							<LabelElement labelFor={'language-used'} text={this.state.text.label} />
+						</div>
+						<button type="button" className="primary" onClick={this.updateLocalStorage}>{this.state.text.button}</button>
 					</div>
-					<button type="button" className="primary" onClick={this.updateLocalStorage}>{this.state.text.button}</button>
-				</div>
-				<div className={this.state.view.nostorage.cl}>
-					<h1 dangerouslySetInnerHTML={{__html: this.state.view.nostorage.text}}></h1>
-				</div>
+					<div className={this.state.view.nostorage.cl}>
+						<h1 dangerouslySetInnerHTML={{__html: this.state.view.nostorage.text}}></h1>
+					</div>
+				</section>
 			</main>
 		);
     }

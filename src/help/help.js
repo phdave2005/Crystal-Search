@@ -20,17 +20,19 @@ class Help extends Component {
   	render() {
 		return ( 
 			<main id="help">
-				<h1>{this.state.text.heading}</h1>
-				<h2 dangerouslySetInnerHTML={{__html: '&emsp;' + this.state.text.subheading}}></h2>
-				<ul>
-				{
-					this.state.text.content.map(content => {
-						return (
-							<li key={'c' + content.id}>{content.text}</li>
-						);
-					})
-				}
-				</ul>
+				<section className="main-wrapper">
+					<h1>{this.state.text.heading}</h1>
+					<h2 dangerouslySetInnerHTML={{__html: '&emsp;' + this.state.text.subheading}}></h2>
+					<ul>
+					{
+						this.state.text.content.map(content => {
+							return (
+								<li key={'c' + content.id}>{content.text}</li>
+							);
+						})
+					}
+					</ul>
+				</section>
 			</main>
 		);
   	}
