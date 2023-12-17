@@ -739,7 +739,7 @@ class Home extends Component {
                             <FiltersForm class={this.state.forms.sections.filters.show ? 'active' : 'DN'} language={this.language} />
                             <button type="submit" className="DN"></button>
                         </form>
-                        <a href="" id="download" className="DN">-</a>
+                        <a href="/" id="download" className="DN">-</a>
                     </div>
                 </div>
             </main>

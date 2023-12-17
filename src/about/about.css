@@ -1,8 +1,11 @@
 main#about {
-  background: #fff;
-  padding: 4px;
-  & p {
-    color: #000!important;
-    text-align: left
-  }
+	background: #fff;
+	padding: 4px;
+	& p {
+		padding-top: 32px;
+		color: #000!important;
+		text-align: justify;
+		max-width: 1000px;
+		margin: auto
+	}
 }
