@@ -1,4 +1,5 @@
 {
+	"homepage": "https://phdave2005.github.io/crystal-search",
 	"name": "crystal-search",
 	"version": "0.1.0",
 	"private": true,
@@ -18,6 +19,8 @@
 		"web-vitals": "^2.1.4"
 	},
 	"scripts": {
+		"predeploy": "npm run build",
+		"deploy": "gh-pages -d build",
 		"start": "react-scripts start",
 		"build": "react-scripts --max_old_space_size=8192 build",
 		"test": "react-scripts test --transformIgnorePatterns \"node_modules/(?!axios)/\"",
