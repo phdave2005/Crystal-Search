@@ -16,6 +16,12 @@ h2.form-heading {
     font-size: 30px
 }
 
+@media (max-width: 600px) {
+    h2.form-heading {
+        font-size: 24px
+    }
+}
+
 .multiselect-field {
     text-align: left;
     width: 90%;
