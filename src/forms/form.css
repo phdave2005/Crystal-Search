@@ -6,7 +6,7 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    width: 80%;
+    width: 90%;
     margin: 0 auto 32px;
     max-width: 600px
 }
@@ -91,5 +91,18 @@ h2.form-heading {
         & :checked:not(value="") {
             color: green
         }
+    }
+}
+
+@media (max-width: 600px) {
+    .flex-field-half-wrapper {
+        flex-direction: column;
+        width: 90%;
+        margin-bottom: 0
+    }
+    .flex-field.half {
+        width: 100%;
+        max-width: unset;
+        margin-bottom: 32px
     }
 }

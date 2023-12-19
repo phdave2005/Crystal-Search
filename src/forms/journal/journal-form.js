@@ -28,7 +28,7 @@ function JournalForm(props) {
 			</select>
 			<LabelElement labelFor={'year'} text={textUsed.labels.year} />
 		</div>
-		<div className="flex-field-half-wrapper MT32">
+		<div className="flex-field-half-wrapper">
 			<div className="flex-field half">
 				<input id="volume" className="field" type="number" min="0" data-search-category="payload" />
 				<LabelElement labelFor={'volume'} text={textUsed.labels.volume} />

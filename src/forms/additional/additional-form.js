@@ -17,7 +17,7 @@ function AdditionalForm(props) {
           <LabelElement labelFor={'include_duplicates'} text={textUsed.labels.duplicates} />
         </div>
       </div>
-      <div className="flex-field-half-wrapper MT32">
+      <div className="flex-field-half-wrapper">
         <div className="flex-field half">
           <input id="include_errors" className="field" type="checkbox" data-search-category="payload" />
           <LabelElement labelFor={'include_errors'} text={textUsed.labels.errors} />

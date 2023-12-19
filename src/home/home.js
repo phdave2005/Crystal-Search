@@ -715,8 +715,8 @@ class Home extends Component {
             <main>
                 <div id="main-grid">
                     <div id="main-grid-menu">
+                        <h3 className="TAC">{this.textUsed.menu.heading}</h3>
                         <ul>
-                            <li>{this.textUsed.menu.heading}</li>
                         {
                             buttonParameters.map(parameter => {
                                 return (
@@ -733,7 +733,12 @@ class Home extends Component {
                     </div>
                     <div id="main-grid-view">
                         <p className={"dialog " + this.state.forms.validation.error.cl} data-identifier="info">{this.state.forms.validation.error.text}</p>
-                        <p id="processing-container" className={this.state.forms.validation.processing.cl} data-identifier="info"><img className="scale-2" src={processing} alt="processing" data-testid="processing" /></p>
+                        <div id="processing-container" className={this.state.forms.validation.processing.cl}>
+                            <div>
+                                <img className="scale-2" src={processing} alt="processing" data-testid="processing" />
+                            </div>
+                            <p>{this.textUsed.processing.text}</p>
+                        </div>
                         <form id="parameters-form" data-testid="form" onSubmit={this.processFormSubmission}>
                             <h2 className="form-heading">{this.state.forms.sections[this.state.forms.active].heading}</h2>
                             <FormulaForm class={this.state.forms.sections.formula.show ? 'active' : 'DN'} language={this.language} />

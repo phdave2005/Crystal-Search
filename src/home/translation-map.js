@@ -19,6 +19,9 @@ export const TEXT_MAP = {
 				search: 'Search'
 			}
 		},
+		processing: {
+			text: 'Processing...'
+		},
 		validation: {
 			error: {
 				api: 'An error was encountered while retrieving the data!',
@@ -58,6 +61,9 @@ export const TEXT_MAP = {
 				reset: 'Reiniciar',
 				search: 'Buscar'
 			}
+		},
+		processing: {
+			text: 'Procesando...'
 		},
 		validation: {
 			error: {
@@ -99,6 +105,9 @@ export const TEXT_MAP = {
 				search: 'Recherche'
 			}
 		},
+		processing: {
+			text: 'Traitement...'
+		},
 		validation: {
 			error: {
 				api: 'Une erreur s\'est produite lors de la récupération des données!',
@@ -138,6 +147,9 @@ export const TEXT_MAP = {
 				reset: 'Ripristina',
 				search: 'Ricerca'
 			}
+		},
+		processing: {
+			text: 'In Lavorazione...'
 		},
 		validation: {
 			error: {

@@ -38,7 +38,7 @@ function FiltersForm(props) {
 					<LabelElement labelFor={'is-mineral'} text={textUsed.fieldset.simple.mineral} />
 				</div>
 			</div>
-			<div className="flex-field-half-wrapper MT32">
+			<div className="flex-field-half-wrapper">
 				<div className="flex-field half">
 					<input id="is-powder-diffraction" className="field" type="checkbox" data-search-category="filters" data-filter="method" />
 					<LabelElement labelFor={'is-powder-diffraction'} text={textUsed.fieldset.simple.powderDiffraction} />

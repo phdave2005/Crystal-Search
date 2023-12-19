@@ -101,7 +101,7 @@ h1 {
 }
 
 .DN {
-  	display: none
+  	display: none!important
 }
 
 .main-wrapper {
@@ -148,4 +148,8 @@ h1 {
 
 .PL4 {
   	padding-left: 4px
+}
+
+.TAC {
+	text-align: center
 }
