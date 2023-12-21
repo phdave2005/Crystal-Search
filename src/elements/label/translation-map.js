@@ -1,15 +1,27 @@
 export const TEXT_MAP = {
     en: {
-        tooltipContent: 'Use Hill notation'
+        tooltipContent: {
+            chemicalFormula: 'Use Hill notation',
+            spacegroup: 'Hermann-Mauguin notation'
+        }
     },
     es: {
-        tooltipContent: 'Usar notación Hill'
+        tooltipContent: {
+            chemicalFormula: 'Usar notación Hill',
+            spacegroup: 'Notación de Hermann-Mauguin'
+        }
     },
     fr: {
-        tooltipContent: 'Utiliser la notation Hill'
+        tooltipContent: {
+            chemicalFormula: 'Utiliser la notation Hill',
+            spacegroup: 'Notation d\'Hermann-Mauguin'
+        }
     },
     it: {
-        tooltipContent: 'Usa la notazione Hill'
+        tooltipContent: {
+            chemicalFormula: 'Usa la notazione Hill',
+            spacegroup: 'Notazione di Hermann-Mauguin'
+        }
     }
 };
 

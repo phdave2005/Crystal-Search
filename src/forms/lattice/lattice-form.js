@@ -58,7 +58,7 @@ function LatticeForm(props) {
           			<option value="">{textUsed.selectDefault}</option>
           			{createSpaceGroupOptions()}
         		</select>
-        		<LabelElement labelFor={'spacegroup'} text={textUsed.labels.spaceGroup} tooltip={false} />
+        		<LabelElement labelFor={'spacegroup'} language={props.language} text={textUsed.labels.spaceGroup} tooltip={'spacegroup'} />
       		</div>
       		<div className="flex-field">
         		<select id="space-group-number" className={dropdownState.spaceGroupNumberClass} data-search-category="payload" onChange={(e) => setDropdownState({spacegroupClass: !!e.target.value.trim() ? 'field disabled' : 'field', spaceGroupNumberClass: 'field'})}>
