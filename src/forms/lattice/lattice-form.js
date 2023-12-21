@@ -58,103 +58,103 @@ function LatticeForm(props) {
           			<option value="">{textUsed.selectDefault}</option>
           			{createSpaceGroupOptions()}
         		</select>
-        		<LabelElement labelFor={'spacegroup'} text={textUsed.labels.spaceGroup} />
+        		<LabelElement labelFor={'spacegroup'} text={textUsed.labels.spaceGroup} tooltip={false} />
       		</div>
       		<div className="flex-field">
         		<select id="space-group-number" className={dropdownState.spaceGroupNumberClass} data-search-category="payload" onChange={(e) => setDropdownState({spacegroupClass: !!e.target.value.trim() ? 'field disabled' : 'field', spaceGroupNumberClass: 'field'})}>
           			<option value="">{textUsed.selectDefault}</option>
           			{createNumberOptions()}
         		</select>
-        		<LabelElement labelFor={'space-group-number'} text={textUsed.labels.spaceGroupNumber} />
+        		<LabelElement labelFor={'space-group-number'} text={textUsed.labels.spaceGroupNumber} tooltip={false} />
       		</div>
       		<div className="flex-field-half-wrapper MT32">
         		<div className="flex-field half">
           			<input id="amin" className="field" type="number" min="0" data-validations="positiveNumber,minCannotExceedMax" data-search-category="payload" onKeyUp={handleNumberChange} />
-          			<LabelElement labelFor={'amin'} text={textUsed.labels.minimumLattice + ' <i>a</i> (Å)'} />
+          			<LabelElement labelFor={'amin'} text={textUsed.labels.minimumLattice + ' <i>a</i> (Å)'} tooltip={false} />
         		</div>
         		<div className="flex-field half">
           			<input id="amax" className="field" type="number" min="0" data-validations="positiveNumber" data-search-category="payload" onKeyUp={handleNumberChange} />
-          			<LabelElement labelFor={'amax'} text={textUsed.labels.maximumLattice + ' <i>a</i> (Å)'} />
+          			<LabelElement labelFor={'amax'} text={textUsed.labels.maximumLattice + ' <i>a</i> (Å)'} tooltip={false} />
         		</div>
       		</div>
       		<div className="flex-field-half-wrapper MT32">
         		<div className="flex-field half">
           			<input id="bmin" className="field" type="number" min="0" data-validations="positiveNumber,minCannotExceedMax" data-search-category="payload" onKeyUp={handleNumberChange} />
-          			<LabelElement labelFor={'bmin'} text={textUsed.labels.minimumLattice + ' <i>b</i> (Å)'} />
+          			<LabelElement labelFor={'bmin'} text={textUsed.labels.minimumLattice + ' <i>b</i> (Å)'} tooltip={false} />
         		</div>
         		<div className="flex-field half">
           			<input id="bmax" className="field" type="number" min="0" data-validations="positiveNumber" data-search-category="payload" onKeyUp={handleNumberChange} />
-          			<LabelElement labelFor={'bmax'} text={textUsed.labels.maximumLattice + ' <i>b</i> (Å)'} />
+          			<LabelElement labelFor={'bmax'} text={textUsed.labels.maximumLattice + ' <i>b</i> (Å)'} tooltip={false} />
         		</div>
       		</div>
 			<div className="flex-field-half-wrapper MT32">
 				<div className="flex-field half">
 					<input id="cmin" className="field" type="number" min="0" data-validations="positiveNumber,minCannotExceedMax" data-search-category="payload" onKeyUp={handleNumberChange} />
-					<LabelElement labelFor={'cmin'} text={textUsed.labels.minimumLattice + ' <i>c</i> (Å)'} />
+					<LabelElement labelFor={'cmin'} text={textUsed.labels.minimumLattice + ' <i>c</i> (Å)'} tooltip={false} />
 				</div>
 				<div className="flex-field half">
 					<input id="cmax" className="field" type="number" min="0" data-validations="positiveNumber" data-search-category="payload" onKeyUp={handleNumberChange} />
-					<LabelElement labelFor={'cmax'} text={textUsed.labels.maximumLattice + ' <i>c</i> (Å)'} />
+					<LabelElement labelFor={'cmax'} text={textUsed.labels.maximumLattice + ' <i>c</i> (Å)'} tooltip={false} />
 				</div>
 			</div>
 			<div className="flex-field-half-wrapper MT32">
 				<div className="flex-field half">
 					<input id="alpmin" className="field" type="number" min="0" data-validations="positiveNumber,minCannotExceedMax" data-search-category="payload" onKeyUp={handleNumberChange} />
-					<LabelElement labelFor={'alpmin'} text={textUsed.labels.minimumLattice + ' <i>&alpha;</i> (&deg;)'} />
+					<LabelElement labelFor={'alpmin'} text={textUsed.labels.minimumLattice + ' <i>&alpha;</i> (&deg;)'} tooltip={false} />
 				</div>
 				<div className="flex-field half">
 					<input id="alpmax" className="field" type="number" min="0" data-validations="positiveNumber" data-search-category="payload" onKeyUp={handleNumberChange} />
-					<LabelElement labelFor={'alpmax'} text={textUsed.labels.maximumLattice + ' <i>&alpha;</i> (&deg;)'} />
+					<LabelElement labelFor={'alpmax'} text={textUsed.labels.maximumLattice + ' <i>&alpha;</i> (&deg;)'} tooltip={false} />
 				</div>
 			</div>
 			<div className="flex-field-half-wrapper MT32">
 				<div className="flex-field half">
 					<input id="betmin" className="field" type="number" min="0" data-validations="positiveNumber,minCannotExceedMax" data-search-category="payload" onKeyUp={handleNumberChange} />
-					<LabelElement labelFor={'betmin'} text={textUsed.labels.minimumLattice + ' <i>&beta;</i> (&deg;)'} />
+					<LabelElement labelFor={'betmin'} text={textUsed.labels.minimumLattice + ' <i>&beta;</i> (&deg;)'} tooltip={false} />
 				</div>
 				<div className="flex-field half">
 					<input id="betmax" className="field" type="number" min="0" data-validations="positiveNumber" data-search-category="payload" onKeyUp={handleNumberChange} />
-					<LabelElement labelFor={'betmax'} text={textUsed.labels.maximumLattice + ' <i>&beta;</i> (&deg;)'} />
+					<LabelElement labelFor={'betmax'} text={textUsed.labels.maximumLattice + ' <i>&beta;</i> (&deg;)'} tooltip={false} />
 				</div>
 			</div>
 			<div className="flex-field-half-wrapper MT32">
 				<div className="flex-field half">
 					<input id="gamin" className="field" type="number" min="0" data-validations="positiveNumber,minCannotExceedMax" data-search-category="payload" onKeyUp={handleNumberChange} />
-					<LabelElement labelFor={'gamin'} text={textUsed.labels.minimumLattice + ' <i>&gamma;</i> (&deg;)'} />
+					<LabelElement labelFor={'gamin'} text={textUsed.labels.minimumLattice + ' <i>&gamma;</i> (&deg;)'} tooltip={false} />
 				</div>
 				<div className="flex-field half">
 					<input id="gamax" className="field" type="number" min="0" data-validations="positiveNumber" data-search-category="payload" onKeyUp={handleNumberChange} />
-					<LabelElement labelFor={'gamax'} text={textUsed.labels.maximumLattice + ' <i>&gamma;</i> (&deg;)'} />
+					<LabelElement labelFor={'gamax'} text={textUsed.labels.maximumLattice + ' <i>&gamma;</i> (&deg;)'} tooltip={false} />
 				</div>
 			</div>
 			<div className="flex-field-half-wrapper MT32">
 				<div className="flex-field half">
 					<input id="vmin" className="field" type="number" min="0" data-validations="positiveNumber,minCannotExceedMax" data-search-category="payload" onKeyUp={handleNumberChange} />
-					<LabelElement labelFor={'vmin'} text={textUsed.labels.minimumCellVolume + ' (Å<sup>3</sup>)'} />
+					<LabelElement labelFor={'vmin'} text={textUsed.labels.minimumCellVolume + ' (Å<sup>3</sup>)'} tooltip={false} />
 				</div>
 				<div className="flex-field half">
 					<input id="vmax" className="field" type="number" min="0" data-validations="positiveNumber" data-search-category="payload" onKeyUp={handleNumberChange} />
-					<LabelElement labelFor={'vmax'} text={textUsed.labels.maximumCellVolume + ' (Å<sup>3</sup>)'} />
+					<LabelElement labelFor={'vmax'} text={textUsed.labels.maximumCellVolume + ' (Å<sup>3</sup>)'} tooltip={false} />
 				</div>
 			</div>
 			<div className="flex-field-half-wrapper MT32">
 				<div className="flex-field half">
 					<input id="minZ" className="field" type="number" min="1" step="1" data-validations="positiveInteger,minCannotExceedMax" data-search-category="payload" />
-					<LabelElement labelFor={'minZ'} text={textUsed.labels.minimumZ} />
+					<LabelElement labelFor={'minZ'} text={textUsed.labels.minimumZ} tooltip={false} />
 				</div>
 				<div className="flex-field half">
 					<input id="maxZ" className="field" type="number" min="1" step="1" data-validations="positiveInteger" data-search-category="payload" />
-					<LabelElement labelFor={'maxZ'} text={textUsed.labels.maximumZ} />
+					<LabelElement labelFor={'maxZ'} text={textUsed.labels.maximumZ} tooltip={false} />
 				</div>
 			</div>
 			<div className="flex-field-half-wrapper MT32">
 				<div className="flex-field half">
 					<input id="minZprime" className="field" type="number" min="0" data-validations="positiveNumber,minCannotExceedMax" data-search-category="payload" onKeyUp={handleNumberChange} />
-					<LabelElement labelFor={'minZprime'} text={textUsed.labels.minimumZprime} />
+					<LabelElement labelFor={'minZprime'} text={textUsed.labels.minimumZprime} tooltip={false} />
 				</div>
 				<div className="flex-field half">
 					<input id="maxZprime" className="field" type="number" min="0" data-validations="positiveNumber" data-search-category="payload" onKeyUp={handleNumberChange} />
-					<LabelElement labelFor={'maxZprime'} text={textUsed.labels.maximumZprime} />
+					<LabelElement labelFor={'maxZprime'} text={textUsed.labels.maximumZprime} tooltip={false} />
 				</div>
 			</div>
     	</section>

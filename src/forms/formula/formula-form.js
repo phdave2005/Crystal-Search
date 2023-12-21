@@ -34,30 +34,30 @@ function FormulaForm(props) {
 		<section id="formula-section" className={props.class} data-testid="formula">
 		<div className="flex-field">
 			<input id="formula" className="field" type="text" data-validations="chemicalFormula" data-search-category="payload" />
-			<LabelElement labelFor={'formula'} text={textUsed.labels.chemicalFormula} />
+			<LabelElement labelFor={'formula'} language={props.language} text={textUsed.labels.chemicalFormula} tooltip={'chemicalFormula'} />
 		</div>
 		<div className="flex-field">
 			<select id="elements-present" className="field" multiple size="9" data-search-category="payload" data-validations="elementPresentAbsentContradiction">
 				<option value="">{textUsed.selectDefault}</option>
 				{createElementsDropdown()}
 			</select>
-			<LabelElement labelFor={'elements-present'} text={textUsed.labels.elementsPresent} />
+			<LabelElement labelFor={'elements-present'} text={textUsed.labels.elementsPresent} tooltip={false} />
 		</div>
 		<div className="flex-field">
 			<select id="elements-absent" className="field" multiple size="9" data-search-category="payload">
 				<option value="">{textUsed.selectDefault}</option>
 				{createElementsDropdown()}
 			</select>
-			<LabelElement labelFor={'elements-absent'} text={textUsed.labels.elementsAbsent} />
+			<LabelElement labelFor={'elements-absent'} text={textUsed.labels.elementsAbsent} tooltip={false} />
 		</div>
 		<div className="flex-field-half-wrapper MT32">
 			<div className="flex-field half">
 				<input id="strictmin" className="field" type="number" min="1" step="1" data-validations="positiveInteger,minCannotExceedMax" data-search-category="payload" />
-				<LabelElement labelFor={'strictmin'} text={textUsed.labels.minimumDistinct} />
+				<LabelElement labelFor={'strictmin'} text={textUsed.labels.minimumDistinct} tooltip={false} />
 			</div>
 			<div className="flex-field half">
 				<input id="strictmax" className="field" type="number" min="1" step="1" data-validations="positiveInteger" data-search-category="payload" />
-				<LabelElement labelFor={'strictmax'} text={textUsed.labels.maximumDistinct} />
+				<LabelElement labelFor={'strictmax'} text={textUsed.labels.maximumDistinct} tooltip={false} />
 			</div>
 		</div>
 		</section>

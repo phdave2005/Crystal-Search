@@ -31,41 +31,41 @@ function FiltersForm(props) {
 			<div className="flex-field-half-wrapper MT32">
 				<div className="flex-field half">
 					<input id="is-disordered" className="field" type="checkbox" data-search-category="filters" data-filter="disordered" />
-					<LabelElement labelFor={'is-disordered'} text={textUsed.fieldset.simple.disordered} />
+					<LabelElement labelFor={'is-disordered'} text={textUsed.fieldset.simple.disordered} tooltip={false} />
 				</div>
 				<div className="flex-field half">
 					<input id="is-mineral" className="field" type="checkbox" data-search-category="filters" data-filter="mineral" />
-					<LabelElement labelFor={'is-mineral'} text={textUsed.fieldset.simple.mineral} />
+					<LabelElement labelFor={'is-mineral'} text={textUsed.fieldset.simple.mineral} tooltip={false} />
 				</div>
 			</div>
 			<div className="flex-field-half-wrapper">
 				<div className="flex-field half">
 					<input id="is-powder-diffraction" className="field" type="checkbox" data-search-category="filters" data-filter="method" />
-					<LabelElement labelFor={'is-powder-diffraction'} text={textUsed.fieldset.simple.powderDiffraction} />
+					<LabelElement labelFor={'is-powder-diffraction'} text={textUsed.fieldset.simple.powderDiffraction} tooltip={false} />
 				</div>
 				<div className="flex-field half">
 					<input id="uses-pressure" className="field" type="checkbox" data-search-category="filters" data-filter="diffrpressure" />
-					<LabelElement labelFor={'uses-pressure'} text={textUsed.fieldset.simple.pressure} />
+					<LabelElement labelFor={'uses-pressure'} text={textUsed.fieldset.simple.pressure} tooltip={false} />
 				</div>
 			</div>
 			<div className="flex-field">
 				<input id="title-keyword" className="field" type="text" data-search-category="filters" data-filter="title" />
-				<LabelElement labelFor={'title-keyword'} text={textUsed.fieldset.simple.title} />
+				<LabelElement labelFor={'title-keyword'} text={textUsed.fieldset.simple.title} tooltip={false} />
 			</div>
 			<div className="flex-field">
 				<input id="commonname-keyword" className="field" type="text" data-search-category="filters" data-filter="commonname" />
-				<LabelElement labelFor={'commonname-keyword'} text={textUsed.fieldset.simple.commonName} />
+				<LabelElement labelFor={'commonname-keyword'} text={textUsed.fieldset.simple.commonName} tooltip={false} />
 			</div>
 			<div className="flex-field">
 				<input id="chemicalname-keyword" className="field" type="text" data-search-category="filters" data-filter="chemname" />
-				<LabelElement labelFor={'chemicalname-keyword'} text={textUsed.fieldset.simple.chemicalName} />
+				<LabelElement labelFor={'chemicalname-keyword'} text={textUsed.fieldset.simple.chemicalName} tooltip={false} />
 			</div>
 			<div className="flex-field">
 			<select id="radtype-keyword" className="field" data-search-category="filters" data-filter="radtype">
 				<option value="">{textUsed.selectDefault}</option>
 				{createOptions(RADIATION_TYPES, 'rt')}
 			</select>
-			<LabelElement labelFor={'radtype-keyword'} text={textUsed.fieldset.simple.radType} />
+			<LabelElement labelFor={'radtype-keyword'} text={textUsed.fieldset.simple.radType} tooltip={false} />
 			</div>
 		</fieldset>
 		<fieldset className="MT32">
@@ -73,31 +73,31 @@ function FiltersForm(props) {
 			<div className="flex-field-half-wrapper MT32">
 				<div className="flex-field half">
 					<input id="min-date" className="field" type="date" data-validations="dateCannotExceedToday,minDateCannotExceedMaxDate" data-search-category="filters" data-filter="mindate" />
-					<LabelElement labelFor={'min-date'} text={textUsed.fieldset.advanced.minDate} />
+					<LabelElement labelFor={'min-date'} text={textUsed.fieldset.advanced.minDate} tooltip={false} />
 				</div>
 				<div className="flex-field half">
 					<input id="max-date" className="field" type="date" data-validations="dateCannotExceedToday" data-search-category="filters" data-filter="maxdate" />
-					<LabelElement labelFor={'max-date'} text={textUsed.fieldset.advanced.maxDate} />
+					<LabelElement labelFor={'max-date'} text={textUsed.fieldset.advanced.maxDate} tooltip={false} />
 				</div>
 			</div>
 			<div className="flex-field-half-wrapper MT32">
 				<div className="flex-field half">
 					<input id="min-density" className="field" type="number" min="0" step="0.1" data-validations="positiveNumber,minCannotExceedMax" data-search-category="filters" data-filter="mindensity" onKeyUp={handleNumberChange} />
-					<LabelElement labelFor={'min-density'} text={textUsed.fieldset.advanced.minDensity} />
+					<LabelElement labelFor={'min-density'} text={textUsed.fieldset.advanced.minDensity} tooltip={false} />
 				</div>
 				<div className="flex-field half">
 					<input id="max-density" className="field" type="number" min="0" step="0.1" data-validations="positiveNumber" data-search-category="filters" data-filter="maxdensity" onKeyUp={handleNumberChange} />
-					<LabelElement labelFor={'max-density'} text={textUsed.fieldset.advanced.maxDensity} />
+					<LabelElement labelFor={'max-density'} text={textUsed.fieldset.advanced.maxDensity} tooltip={false} />
 				</div>
 			</div>
 			<div className="flex-field-half-wrapper MT32">
 			<div className="flex-field half">
 				<input id="min-molecular-weight" className="field" type="number" min="0" data-validations="positiveNumber,minCannotExceedMax" data-search-category="filters" data-filter="minmolwt" onKeyUp={handleNumberChange} />
-				<LabelElement labelFor={'min-molecular-weight'} text={textUsed.fieldset.advanced.minWeight} />
+				<LabelElement labelFor={'min-molecular-weight'} text={textUsed.fieldset.advanced.minWeight} tooltip={false} />
 			</div>
 			<div className="flex-field half">
 				<input id="max-molecular-weight" className="field" type="number" min="0" data-validations="positiveNumber" data-search-category="filters" data-filter="maxmolwt" onKeyUp={handleNumberChange} />
-				<LabelElement labelFor={'max-molecular-weight'} text={textUsed.fieldset.advanced.maxWeight} />
+				<LabelElement labelFor={'max-molecular-weight'} text={textUsed.fieldset.advanced.maxWeight} tooltip={false} />
 			</div>
 			</div>
 			<div className="flex-field-half-wrapper MT32">
@@ -107,7 +107,7 @@ function FiltersForm(props) {
 				</div>
 				<div className="flex-field half">
 					<input id="max-rfactor" className="field" type="number" min="0" step="0.1" data-validations="positiveNumber" data-search-category="filters" data-filter="maxrfactor" onKeyUp={handleNumberChange} />
-					<LabelElement labelFor={'max-rfactor'} text={textUsed.fieldset.advanced.maxR} />
+					<LabelElement labelFor={'max-rfactor'} text={textUsed.fieldset.advanced.maxR} tooltip={false} />
 				</div>
 			</div>
 			<div className="flex-field MT32">
@@ -115,7 +115,7 @@ function FiltersForm(props) {
 				<option value="">{textUsed.selectDefault}</option>
 				{createOptions(NAMED_COLORS, 'nc')}
 			</select>
-			<LabelElement labelFor={'crystal-color'} text={textUsed.fieldset.advanced.crystalColor} />
+			<LabelElement labelFor={'crystal-color'} text={textUsed.fieldset.advanced.crystalColor} tooltip={false} />
 			</div>
 		</fieldset>
 		</section>
