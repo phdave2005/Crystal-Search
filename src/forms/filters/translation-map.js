@@ -15,7 +15,7 @@ export const TEXT_MAP = {
 				minDate: 'Start date',
 				maxDate: 'End date',
 				minDensity: 'Minimum density',
-				maxDensity: 'Max density',
+				maxDensity: 'Maximum density',
 				minWeight: 'Minimum molecular weight',
 				maxWeight: 'Maximum molecular weight',
 				minR: 'Minimum R factor (all)',

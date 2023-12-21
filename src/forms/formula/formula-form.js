@@ -37,7 +37,7 @@ function FormulaForm(props) {
 			<LabelElement labelFor={'formula'} text={textUsed.labels.chemicalFormula} />
 		</div>
 		<div className="flex-field">
-			<select id="elements-present" className="field" multiple size="9" data-search-category="payload">
+			<select id="elements-present" className="field" multiple size="9" data-search-category="payload" data-validations="elementPresentAbsentContradiction">
 				<option value="">{textUsed.selectDefault}</option>
 				{createElementsDropdown()}
 			</select>

@@ -22,30 +22,14 @@ h2.form-heading {
     }
 }
 
-.multiselect-field {
-    text-align: left;
-    width: 90%;
-    margin: 0 auto 32px;
-    max-width: 600px;
-    &.invalid {
-        & input, & select {
-            border: solid red
-        }
-        & label {
-            color: red
-        }
-    }
+:focus {
+    outline: 3px solid #addfff
 }
 
 .flex-field {
     display: flex;
     flex-direction: column;
-    & :not([type=checkbox]) {
-        align-items: start
-    }
-    & [type=checkbox] {
-        align-items: center
-    }
+    align-items: start;
     justify-content: space-between;
     width: 90%;
     margin: 0 auto 32px;
@@ -63,6 +47,9 @@ h2.form-heading {
         width: 60%;
         margin: 0;
         max-width: 250px;
+        &:has([type=checkbox]) {
+            align-items: center
+        }
         & input {
             margin-bottom: 4px;
             padding: 8px;
@@ -72,7 +59,7 @@ h2.form-heading {
             &[type=checkbox] {
                 transform: scale(1.5);
                 margin-right: 4px;
-                width: unset
+                width: max-content
             }
         }
     }

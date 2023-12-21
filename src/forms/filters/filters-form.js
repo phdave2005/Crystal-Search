@@ -110,7 +110,7 @@ function FiltersForm(props) {
 					<LabelElement labelFor={'max-rfactor'} text={textUsed.fieldset.advanced.maxR} />
 				</div>
 			</div>
-			<div className="flex-field">
+			<div className="flex-field MT32">
 			<select id="crystal-color" className="field" data-search-category="filters" data-filter="crystalcolor">
 				<option value="">{textUsed.selectDefault}</option>
 				{createOptions(NAMED_COLORS, 'nc')}

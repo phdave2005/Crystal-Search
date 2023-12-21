@@ -116,7 +116,7 @@ class Home extends Component {
                                     multiselectedOptionsCounter++;
                                 }
                             }
-                            if (multiselectedOptionsCounter > 1) continue; 
+                            if (multiselectedOptionsCounter > 1) continue;
                         }
                         if (val) {
                             searchData[category][ID] = {
@@ -522,6 +522,7 @@ class Home extends Component {
             extractedElementSymbol;
         const splitFormula = formula.split(" ");
         const periodicTableData = PERIODIC_TABLE_DATA.ELEMENTS;
+        const filteredElementSymbols = [];
         splitFormula.forEach((fragment) => {
             if (!fragment.match(/^[A-Za-z]+(\d+)?$/i)) {
                 isHill = false;
@@ -537,8 +538,32 @@ class Home extends Component {
                 if (elementMatches === 0) {
                     isHill = false;
                 }
+                filteredElementSymbols.push(extractedElementSymbol);
             }
         });
+        if (isHill && filteredElementSymbols.length) {
+            const cIndex = filteredElementSymbols.indexOf("C");
+            const hIndex = filteredElementSymbols.indexOf("H");
+            const hasC = cIndex !== -1;
+            const hasH = hIndex !== -1;
+            const hasCH = hasC && hasH;
+            const filteredElementSymbolsLength = filteredElementSymbols.length;
+            if (hasCH) {
+                isHill = (cIndex === 0) && (hIndex === 1);
+            } else if (hasC) {
+                isHill = cIndex === 0;
+            } else {
+                isHill = hasH && (hIndex === 0);
+            }
+            if (isHill && ((hasCH && filteredElementSymbolsLength > 2) || (hasC && filteredElementSymbolsLength > 1) || (hasH && filteredElementSymbolsLength > 1))) {
+                if (hasC) filteredElementSymbols.shift();
+                if (hasH) filteredElementSymbols.shift();
+                const joinedA = filteredElementSymbols.join("");
+                filteredElementSymbols.sort();
+                const joinedB = filteredElementSymbols.join("");
+                isHill = joinedA === joinedB;
+            }
+        }
         return isHill;
     }
 
@@ -558,6 +583,27 @@ class Home extends Component {
                         break;
                         case 'doi':
                             invalid = !f.value.match(/\./) || !f.value.match(/\//) || !f.value.match(/\d/);
+                        break;
+                        case 'elementPresentAbsentContradiction':
+                            const correspondingAbsentId = f.id.replace(/present$/i, 'absent');
+                            const absentField = document.getElementById(correspondingAbsentId);console.log(f.value.length, f.options);console.log(absentField.value.length, absentField.options);
+                            const multipleOptionIntersection = (optionsSetA, optionsSetB) => {
+                                let i;
+                                const selectedA = [],
+                                    selectedB = [];
+                                for(i in optionsSetA) {
+                                    if (!!optionsSetA[i]?.selected) {
+                                        selectedA.push(optionsSetA[i].value);
+                                    }
+                                }
+                                for(i in optionsSetB) {
+                                    if (!!optionsSetB[i]?.selected) {
+                                        selectedB.push(optionsSetB[i].value);
+                                    }
+                                }
+                                return selectedB.filter(el => selectedA.includes(el)).length;
+                            };
+                            invalid = !!absentField && absentField.value.trim() && multipleOptionIntersection(f.options, absentField.options);
                         break;
                         case 'minCannotExceedMax':
                             const correspondingMaximumId = f.id.replace(/min/i, 'max');
