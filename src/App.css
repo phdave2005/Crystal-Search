@@ -35,7 +35,7 @@ header, footer {
 	transition: 700ms;
 	cursor: pointer;
 	color: #fff!important;
-	padding-top: 2px
+	margin-top: 2px
 }
 
 .action-container .action-icon:hover, button:hover {
@@ -73,21 +73,25 @@ button {
 	padding: 12px;
 	font-size: 16px;
 	cursor: pointer;
-	max-width: 200px;
-	&.warning {
-		background: #ffc107
-	}
-	&.primary {
-		background: #0d6efd;
-		color: #fff
-	}
-	&.secondary {
-		background: #6c757d;
-		color: #fff
-	}
-	& span {
-		margin-left: 4px
-	}
+	max-width: 200px
+}
+
+button.warning {
+	background: #ffc107
+}
+
+button.primary {
+	background: #0d6efd;
+	color: #fff
+}
+
+button.secondary {
+	background: #6c757d;
+	color: #fff
+}
+
+button span {
+	margin-left: 4px
 }
 
 h1 {
@@ -148,6 +152,10 @@ h1 {
 
 .PL4 {
   	padding-left: 4px
+}
+
+svg.fa-circle-question {
+	cursor: help
 }
 
 .TAC {
