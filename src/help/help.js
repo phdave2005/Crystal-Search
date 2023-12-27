@@ -11,8 +11,16 @@ class Help extends Component {
 		this.state = {
 			text: {
 				heading: textUsed.heading,
-				subheading: textUsed.subheading,
-				content: textUsed.content
+				sections: {
+					usageTips: {
+						subheading: textUsed.sections.usageTips.subheading,
+						content: textUsed.sections.usageTips.content
+					},
+					resources: {
+						subheading: textUsed.sections.resources.subheading,
+						content: textUsed.sections.resources.content
+					}
+				}
 			}
 		}
 	}
@@ -22,12 +30,22 @@ class Help extends Component {
 			<main id="help">
 				<section className="main-wrapper">
 					<h1>{this.state.text.heading}</h1>
-					<h2 dangerouslySetInnerHTML={{__html: '&emsp;' + this.state.text.subheading}}></h2>
+					<h2 dangerouslySetInnerHTML={{__html: '&emsp;' + this.state.text.sections.usageTips.subheading}}></h2>
 					<ul>
 					{
-						this.state.text.content.map(content => {
+						this.state.text.sections.usageTips.content.map(content => {
 							return (
-								<li key={'c' + content.id}>{content.text}</li>
+								<li key={'c' + content.id} dangerouslySetInnerHTML={{__html: content.text}}></li>
+							);
+						})
+					}
+					</ul>
+					<h2 dangerouslySetInnerHTML={{__html: '&emsp;' + this.state.text.sections.resources.subheading}}></h2>
+					<ul>
+					{
+						this.state.text.sections.resources.content.map(content => {
+							return (
+								<li key={'c' + content.id} dangerouslySetInnerHTML={{__html: content.text}}></li>
 							);
 						})
 					}
