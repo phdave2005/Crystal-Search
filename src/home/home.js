@@ -472,7 +472,7 @@ class Home extends Component {
         });
         const downloadLink = document.getElementById("download");
         downloadLink.setAttribute("href", URL.createObjectURL(blob));
-        downloadLink.setAttribute("download", "data_" + date.toISOString().split("T")[0] + "-" + date.getTime() + ".json");
+        downloadLink.setAttribute("download", "data_" + (window?.localStorage?.getItem("filename-modifier") ? window.localStorage.getItem("filename-modifier") + '_' : '') + date.toISOString().split("T")[0] + "-" + date.getTime() + ".json");
         downloadLink.click();
         setTimeout(() => {
             this.setState(

@@ -32,7 +32,10 @@ export const TEXT_MAP = {
             cod: 'About COD'
         },
         heading: 'Settings',
-        label: 'Language Used',
+        label: {
+            languageUsed: 'Language Used',
+            filenameModifier: 'Custom filename modifier (letters/numbers/underscore)'
+        },
         button: 'Update',
         noStorage: 'Local storage is not supported by this browser.'
     },
@@ -42,7 +45,10 @@ export const TEXT_MAP = {
             cod: 'Acerca de COD'
         },
         heading: 'Ajustes',
-        label: 'Idioma Usado',
+        label: {
+            languageUsed: 'Idioma Usado',
+            filenameModifier: 'Modificador de nombre de archivo personalizado (letras/números/guion bajo)'
+        },
         button: 'Actualizar',
         noStorage: 'El almacenamiento local no es compatible con este navegador.'
     },
@@ -52,7 +58,10 @@ export const TEXT_MAP = {
             cod: 'À propos COD'
         },
         heading: 'Paramètres',
-        label: 'Langue Utilisée',
+        label: {
+            languageUsed: 'Langue Utilisée',
+            filenameModifier: 'Modificateur de nom de fichier personnalisé (lettres/chiffres/trait de soulignement)'
+        },
         button: 'Mettre à Jour',
         noStorage: 'Le stockage local n\'est pas pris en charge par ce navigateur.'
     },
@@ -62,7 +71,10 @@ export const TEXT_MAP = {
             cod: 'Di COD'
         },
         heading: 'Impostazioni',
-        label: 'Lingua Utilizzata',
+        label: {
+            languageUsed: 'Lingua Utilizzata',
+            filenameModifier: 'Modificatore nome file personalizzato (lettere/numeri/trattino basso)'
+        },
         button: 'Aggiornare',
         noStorage: 'L\'archiviazone locale non è supportate da questo browser.'
     }

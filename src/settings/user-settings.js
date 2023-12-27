@@ -12,7 +12,10 @@ class Settings extends Component {
 			hasStorage: false,
 			text: {
 				title: '',
-				label: '',
+				label: {
+					languageUsed: '',
+					filenameModifier: ''
+				},
 				button: ''
 			},
 			view: {
@@ -33,6 +36,7 @@ class Settings extends Component {
 			this.languageUsed = window.localStorage.getItem("language-used") || 'en';
 			this.setSettingsState();
 			document.getElementById("language-used").value = this.languageUsed;
+			document.getElementById("filename-modifier").value = window.localStorage.getItem("filename-modifier") || '';
 		}
 	}
 
@@ -41,7 +45,10 @@ class Settings extends Component {
 		this.setState({
 			hasStorage: true,
 			text: {
-				label: textUsed.label,
+				label: {
+					languageUsed: textUsed.label.languageUsed,
+					filenameModifier: textUsed.label.filenameModifier
+				},
 				button: textUsed.button
 			},
 			view: {
@@ -88,7 +95,7 @@ class Settings extends Component {
 				if (set[i].type === 'checkbox') {
 					val = set[i].checked ? 1 : 0;
 				}
-				storage.setItem(set[i].id, val);
+				storage.setItem(set[i].id, val.replace(/\s/g, ''));
 				if (set[i].id === 'language-used') {
 					this.languageUsed = set[i].value;
 					this.setSettingsState();
@@ -127,7 +134,11 @@ class Settings extends Component {
 							<select id="language-used" className="field">
 								{this.languageOptions()}
 							</select>
-							<LabelElement labelFor={'language-used'} text={this.state.text.label} />
+							<LabelElement labelFor={'language-used'} text={this.state.text.label.languageUsed} />
+						</div>
+						<div className="flex-field MT32">
+							<input id="filename-modifier" className="field" type="text" />
+							<LabelElement labelFor={'filename-modifier'} text={this.state.text.label.filenameModifier} />
 						</div>
 						<button type="button" className="primary" onClick={this.updateLocalStorage}>{this.state.text.button}</button>
 					</div>
