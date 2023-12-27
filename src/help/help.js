@@ -40,6 +40,7 @@ class Help extends Component {
 						})
 					}
 					</ul>
+					<hr />
 					<h2 dangerouslySetInnerHTML={{__html: '&emsp;' + this.state.text.sections.resources.subheading}}></h2>
 					<ul>
 					{
