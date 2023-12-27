@@ -5,6 +5,7 @@ import { faXTwitter } from '@fortawesome/free-brands-svg-icons'
 import Home from './home/home.js'
 import Help from './help/help.js'
 import About from './about/about.js'
+import NotFound from './not-found/not-found.js'
 import HelpIcon from './elements/help-icon/help-icon.js'
 import Settings from './settings/user-settings.js'
 import SettingsToggle from './elements/settings/settings-toggle.js'
@@ -36,9 +37,9 @@ const App = () => {
         aboutCod: textMap[language].aboutCod
     });
 
-    useEffect(() => {
-        const navigationEntries = window.performance.getEntriesByType('navigation');
-        if (navigationEntries.length > 0 && navigationEntries[0].type === 'reload') {
+    useEffect(() => {console.log('aaaa');
+        const navigationEntries = window.performance.getEntriesByType('navigation');console.log(navigationEntries);
+        if (navigationEntries.length > 0 && navigationEntries[0].type === 'reload') {console.log('xxxx');
             window.location.href = "/crystal-search";
         }
     }, []);
@@ -62,6 +63,7 @@ const App = () => {
                     <Route path="/crystal-search/help" element={<Help />} />
                     <Route path="/crystal-search/settings" element={<Settings />} />
                     <Route path="/crystal-search/about" element={<About />} />
+                    <Route path="*" element={<NotFound />} />
                 </Routes>
                 <footer className="flex-align-center">
                     <span className="ML4">
