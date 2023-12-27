@@ -1,8 +1,13 @@
-main#about {
+#not-found .App-logo {
+	width: 100px;
+	height: 100px;
+}
+
+main#not-found {
 	background: #fff;
 	padding: 4px
 }
-main#about p {
+main#not-found p {
 	padding-top: 32px;
 	color: #000!important;
 	text-align: justify;

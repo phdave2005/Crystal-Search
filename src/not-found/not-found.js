@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import './not-found.css'
 import '../App.css'
+import logo from '../logo.svg'
 import TEXT_MAP from './translation-map.js'
 
 class NotFound extends Component {
@@ -18,11 +19,12 @@ class NotFound extends Component {
 
   	render() {
 		return ( 
-			<main id="about">
+			<main id="not-found">
 				<section className="main-wrapper">
+					<img src={logo} className="App-logo" alt="logo" />
 					<h1>{this.state.text.heading}</h1>
 					<div>
-						<p dangerouslySetInnerHTML={{__html: '&emsp;' + this.state.text.content}}></p>
+						<h2 dangerouslySetInnerHTML={{__html: '&emsp;' + this.state.text.content}}></h2>
 					</div>
 				</section>
 			</main>

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { BrowserRouter, Link, Routes, Route } from 'react-router-dom'
+import { HashRouter, Link, Routes, Route } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faXTwitter } from '@fortawesome/free-brands-svg-icons'
 import Home from './home/home.js'
@@ -37,15 +37,15 @@ const App = () => {
         aboutCod: textMap[language].aboutCod
     });
 
-    useEffect(() => {console.log('aaaa');
-        const navigationEntries = window.performance.getEntriesByType('navigation');console.log(navigationEntries);
-        if (navigationEntries.length > 0 && navigationEntries[0].type === 'reload') {console.log('xxxx');
-            window.location.href = "/crystal-search";
+    useEffect(() => {
+        const navigationEntries = window.performance.getEntriesByType('navigation');
+        if (navigationEntries.length > 0 && navigationEntries[0].type === 'reload') {
+            window.location.href = "#/crystal-search";
         }
     }, []);
     
     return (
-        <BrowserRouter>
+        <HashRouter>
             <div className="App">
                 <header className="flex-align-top">
                     <div className="ML4">
@@ -78,7 +78,7 @@ const App = () => {
                     </span>
                 </footer>
             </div>
-        </BrowserRouter>
+        </HashRouter>
     );
 };
 
