@@ -11,7 +11,7 @@ function createElementsDropdown() {
 		families = PERIODIC_TABLE_DATA.ELEMENT_FAMILIES[language],
 		len = families.length,
 		generateOptions = (familyIndex) => {
-			const elements = PERIODIC_TABLE_DATA.ELEMENTS;
+			const elements = PERIODIC_TABLE_DATA.ELEMENTS[language];
 			const elementsLength = elements.length;
 			let j = 0,
 				options = [];

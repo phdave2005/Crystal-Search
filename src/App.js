@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { BrowserRouter, Link, Routes, Route } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faXTwitter } from '@fortawesome/free-brands-svg-icons'
@@ -35,6 +35,13 @@ const App = () => {
         about: textMap[language].about,
         aboutCod: textMap[language].aboutCod
     });
+
+    useEffect(() => {
+        const navigationEntries = window.performance.getEntriesByType('navigation');
+        if (navigationEntries.length > 0 && navigationEntries[0].type === 'reload') {
+            window.location.href = "/crystal-search";
+        }
+    }, []);
     
     return (
         <BrowserRouter>
