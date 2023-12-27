@@ -1,5 +1,8 @@
 export const TEXT_MAP = {
 	en: {
+		download: {
+			data: 'data'
+		},
 		heading: {
 			formula: 'Chemical Formula Parameters',
 			lattice: 'Lattice Parameters',
@@ -44,6 +47,9 @@ export const TEXT_MAP = {
 		}
 	},
 	es: {
+		download: {
+			data: 'datos'
+		},
 		heading: {
 			formula: 'Parámetros de Fórmula Química',
 			lattice: 'Parámetros de Red',
@@ -88,6 +94,9 @@ export const TEXT_MAP = {
 		}
 	},
 	fr: {
+		download: {
+			data: 'donnés'
+		},
 		heading: {
 			formula: 'Paramètres de Formule Chimique',
 			lattice: 'Paramètres de Réseau',
@@ -132,6 +141,9 @@ export const TEXT_MAP = {
 		}
 	},
 	it: {
+		download: {
+			data: 'dati'
+		},
 		heading: {
 			formula: 'Parametri delle Formule Chimiche',
 			lattice: 'Parametri del Reticolo',

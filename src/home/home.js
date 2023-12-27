@@ -20,6 +20,11 @@ class Home extends Component {
         this.language = window?.localStorage?.getItem("language-used") || 'en';
 		this.textUsed = TEXT_MAP[this.language];
         this.state = {
+            download: {
+                text: {
+                    data: this.textUsed.download.data
+                }
+            },
             forms: {
                 active: 'formula',
                 sections: {
@@ -472,7 +477,7 @@ class Home extends Component {
         });
         const downloadLink = document.getElementById("download");
         downloadLink.setAttribute("href", URL.createObjectURL(blob));
-        downloadLink.setAttribute("download", "data_" + (window?.localStorage?.getItem("filename-modifier") ? window.localStorage.getItem("filename-modifier") + '_' : '') + date.toISOString().split("T")[0] + "-" + date.getTime() + ".json");
+        downloadLink.setAttribute("download", this.state.download.text.data + "_" + (window?.localStorage?.getItem("filename-modifier") ? window.localStorage.getItem("filename-modifier") + '_' : '') + date.toISOString().split("T")[0] + "-" + date.getTime() + ".json");
         downloadLink.click();
         setTimeout(() => {
             this.setState(

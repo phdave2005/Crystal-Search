@@ -56,7 +56,7 @@ const App = () => {
                     <Route path="/crystal-search/help" element={<Help />} />
                     <Route path="/crystal-search/settings" element={<Settings />} />
                     <Route path="/crystal-search/about" element={<About />} />
-                    <Route path="*" element={<NotFound />} />
+                    <Route path="/crystal-search/*" element={<NotFound />} />
                 </Routes>
                 <footer className="flex-align-center">
                     <span className="ML4">

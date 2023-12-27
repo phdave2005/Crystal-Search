@@ -134,11 +134,11 @@ class Settings extends Component {
 							<select id="language-used" className="field">
 								{this.languageOptions()}
 							</select>
-							<LabelElement labelFor={'language-used'} text={this.state.text.label.languageUsed} />
+							<LabelElement labelFor={'language-used'} text={this.state.text.label.languageUsed} tooltip={false} />
 						</div>
 						<div className="flex-field MT32">
 							<input id="filename-modifier" className="field" type="text" />
-							<LabelElement labelFor={'filename-modifier'} text={this.state.text.label.filenameModifier} />
+							<LabelElement labelFor={'filename-modifier'} text={this.state.text.label.filenameModifier} tooltip={'filenameModifier'} />
 						</div>
 						<button type="button" className="primary" onClick={this.updateLocalStorage}>{this.state.text.button}</button>
 					</div>

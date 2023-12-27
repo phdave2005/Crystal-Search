@@ -41,14 +41,14 @@ function FormulaForm(props) {
 				<option value="">{textUsed.selectDefault}</option>
 				{createElementsDropdown()}
 			</select>
-			<LabelElement labelFor={'elements-present'} text={textUsed.labels.elementsPresent} tooltip={false} />
+			<LabelElement labelFor={'elements-present'} text={textUsed.labels.elementsPresent} tooltip={'multiselectTips'} />
 		</div>
 		<div className="flex-field">
 			<select id="elements-absent" className="field" multiple size="9" data-search-category="payload">
 				<option value="">{textUsed.selectDefault}</option>
 				{createElementsDropdown()}
 			</select>
-			<LabelElement labelFor={'elements-absent'} text={textUsed.labels.elementsAbsent} tooltip={false} />
+			<LabelElement labelFor={'elements-absent'} text={textUsed.labels.elementsAbsent} tooltip={'multiselectTips'} />
 		</div>
 		<div className="flex-field-half-wrapper MT32">
 			<div className="flex-field half">
