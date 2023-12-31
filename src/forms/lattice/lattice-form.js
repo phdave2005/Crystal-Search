@@ -5,9 +5,8 @@ import LabelElement from '../../elements/label/label-element.js'
 import SPACE_GROUP_DATA from '../../constants/space-groups.js'
 import TEXT_MAP from './translation-map.js'
 
-function createSpaceGroupOptions() {
-    const lattices = SPACE_GROUP_DATA.BRAVAIS_LATTICES;
-    const len = lattices.length;
+function createSpaceGroupOptions(language) {
+    const latticeMap = SPACE_GROUP_DATA.BRAVAIS_LATTICE_MAP[language];
     let opts = [],
         i = 0,
         generateOptions = (lattice) => {
@@ -22,8 +21,8 @@ function createSpaceGroupOptions() {
             }
             return options;
         };
-  	for(; i < len; i++) {
-    	opts.push(<optgroup key={'sgog' + i} label={lattices[i]}>{generateOptions(lattices[i])}</optgroup>);
+  	for(i in latticeMap) {
+    	opts.push(<optgroup key={'sgog' + i} label={latticeMap[i]}>{generateOptions(i)}</optgroup>);
   	}
   	return opts;
 }
@@ -56,7 +55,7 @@ function LatticeForm(props) {
       		<div className="flex-field">
         		<select id="spacegroup" className={dropdownState.spacegroupClass} data-search-category="payload" onChange={(e) => setDropdownState({spacegroupClass: 'field', spaceGroupNumberClass: !!e.target.value.trim() ? 'field disabled' : 'field'})}>
           			<option value="">{textUsed.selectDefault}</option>
-          			{createSpaceGroupOptions()}
+          			{createSpaceGroupOptions(props.language)}
         		</select>
         		<LabelElement labelFor={'spacegroup'} language={props.language} text={textUsed.labels.spaceGroup} tooltip={'spacegroup'} />
       		</div>

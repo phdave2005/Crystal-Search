@@ -4,9 +4,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircleQuestion } from '@fortawesome/free-solid-svg-icons'
 
 function HelpIcon(props) {
-	return (
-		<Link to="/crystal-search/help" className="action-icon">
-			<FontAwesomeIcon icon={faCircleQuestion} />
+    return (
+        <Link to="/crystal-search/help" className="action-icon">
+            <FontAwesomeIcon icon={faCircleQuestion} />
 		</Link>
 	);
 }

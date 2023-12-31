@@ -1,12 +1,41 @@
-export const BRAVAIS_LATTICES = [
-  'Triclinic',
-  'Monoclinic',
-  'Orthorhombic',
-  'Tetragonal',
-  'Trigonal',
-  'Hexagonal',
-  'Cubic'
-];
+export const BRAVAIS_LATTICE_MAP = {
+    en: {
+        Triclinic: 'Triclinic',
+        Monoclinic: 'Monoclinic',
+        Orthorhombic: 'Orthorhombic',
+        Tetragonal: 'Tetragonal',
+        Trigonal: 'Trigonal',
+        Hexagonal: 'Hexagonal',
+        Cubic: 'Cubic'
+    },
+    es: {
+        Triclinic: 'Triclínicas',
+        Monoclinic: 'Monoclínicas',
+        Orthorhombic: 'Ortorrómbico',
+        Tetragonal: 'Tetragonal',
+        Trigonal: 'Trigonal',
+        Hexagonal: 'Hexagonal',
+        Cubic: 'Cúbico'
+    },
+    fr: {
+        Triclinic: 'Triclinic',
+        Monoclinic: 'Monoclinic',
+        Orthorhombic: 'Orthorhombique',
+        Tetragonal: 'Tétragonal',
+        Trigonal: 'Trigone',
+        Hexagonal: 'Hexagonal',
+        Cubic: 'Cubique'
+    },
+    it: {
+        Triclinic: 'Triclinico',
+        Monoclinic: 'Monoclino',
+        Orthorhombic: 'Ortorombico',
+        Tetragonal: 'Tetragonale',
+        Trigonal: 'Trigonale',
+        Hexagonal: 'Esagonale',
+        Cubic: 'Cubo'
+    }
+};
 
 export const SPACE_GROUPS = [
   { id: 'sg1', lattice: 'Triclinic', spacegroup: 'P 1', label: 'P1' },
@@ -83,7 +112,6 @@ export const SPACE_GROUPS = [
   { id: 'sg72', lattice: 'Orthorhombic', spacegroup: 'I 2/b 2/a 2/m', label: 'Ibam' },
   { id: 'sg73', lattice: 'Orthorhombic', spacegroup: 'I 2/b 2/c 2/a', label: 'Ibca' },
   { id: 'sg74', lattice: 'Orthorhombic', spacegroup: 'I 2/m 2/m 2/a', label: 'Imma' },
-  
   { id: 'sg75', lattice: 'Tetragonal', spacegroup: 'P 4', label: 'P4' },
   { id: 'sg76', lattice: 'Tetragonal', spacegroup: 'P 41', label: 'P4\u2081' },
   { id: 'sg77', lattice: 'Tetragonal', spacegroup: 'P 42', label: 'P4\u2082' },
@@ -243,7 +271,7 @@ export const SPACE_GROUPS = [
 ];
 
 export const SPACE_GROUP_DATA = {
-  BRAVAIS_LATTICES,
+  BRAVAIS_LATTICE_MAP,
   SPACE_GROUPS
 };
 
