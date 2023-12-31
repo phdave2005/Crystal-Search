@@ -56,8 +56,7 @@ header, footer {
 
 .svg-a {
 	top: 16px;
-	left: 0;
-	right: -4px
+	left: 0
 }
 
 footer a, footer a:visited {
@@ -101,6 +100,12 @@ h1 {
 @media (max-width: 600px) {
 	h1 {
 		font-size: 30px
+	}
+	h1 img {
+		transform: scale(calc(5/6))
+	}
+	h1 .svg-a {
+		left: -1px
 	}
 }
 

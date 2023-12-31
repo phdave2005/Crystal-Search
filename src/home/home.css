@@ -54,29 +54,34 @@ main {
 
 #main-grid-view {
 	background: #fff;
-	overflow-y: auto;
-	.form-heading {
-		margin-top: 16px;
-	}
-	& [data-identifier=info] {
-		font-size: 24px;
-		width: 90%;
-		max-width: 600px;
-		margin: auto;
-		margin-top: 8px;
-		&.dialog {
-			padding: 16px 0;
-			border-radius: 16px
-		}
-		&.invalid {
-			color: red;
-			background: rgb(255 0 0 / 0.1)
-		}
-		&.valid {
-			color: green;
-			background: rgb(0 255 0 / 0.1)
-		}
-	}
+	overflow-y: auto
+}
+
+#main-grid-view .form-heading {
+	margin-top: 16px
+}
+
+#main-grid-view [data-identifier=info] {
+	font-size: 24px;
+	width: 90%;
+	max-width: 600px;
+	margin: auto;
+	margin-top: 8px
+}
+
+#main-grid-view [data-identifier=info].dialog {
+	padding: 16px 0;
+	border-radius: 16px
+}
+
+#main-grid-view [data-identifier=info].invalid {
+	color: red;
+	background: rgb(255 0 0 / 0.1)
+}
+
+#main-grid-view [data-identifier=info].valid {
+	color: green;
+	background: rgb(0 255 0 / 0.1)
 }
 
 .pointer-events-none {
