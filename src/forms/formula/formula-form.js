@@ -4,22 +4,21 @@ import LabelElement from '../../elements/label/label-element.js'
 import PERIODIC_TABLE_DATA from '../../constants/periodic-table.js'
 import TEXT_MAP from './translation-map.js'
 
-function createElementsDropdown() {
-	let opts = [],
-		i = 0,
-		language = window?.localStorage?.getItem("language-used") || 'en',
-		families = PERIODIC_TABLE_DATA.ELEMENT_FAMILIES[language],
-		len = families.length,
-		generateOptions = (familyIndex) => {
-			const elements = PERIODIC_TABLE_DATA.ELEMENTS[language];
-			const elementsLength = elements.length;
-			let j = 0,
-				options = [];
-			for(; j < elementsLength; j++) {
-				if (elements[j].family === familyIndex) {
-					options.push(<option key={j} value={elements[j].symbol} dangerouslySetInnerHTML={{__html: elements[j].label}}></option>);
-				}
-			}
+function createElementsDropdown(language) {
+    const families = PERIODIC_TABLE_DATA.ELEMENT_FAMILIES[language];
+    const len = families.length
+    let opts = [],
+        i = 0,
+        generateOptions = (familyIndex) => {
+            const elements = PERIODIC_TABLE_DATA.ELEMENTS[language];
+            const elementsLength = elements.length;
+            let j = 0,
+                options = [];
+            for(; j < elementsLength; j++) {
+                if (elements[j].family === familyIndex) {
+                    options.push(<option key={j} value={elements[j].symbol} dangerouslySetInnerHTML={{__html: elements[j].label}}></option>);
+                }
+            }
 			return options;
 		};
 	for(; i < len; i++) {
@@ -39,14 +38,14 @@ function FormulaForm(props) {
 		<div className="flex-field">
 			<select id="elements-present" className="field" multiple size="9" data-search-category="payload" data-validations="elementPresentAbsentContradiction">
 				<option value="">{textUsed.selectDefault}</option>
-				{createElementsDropdown()}
+				{createElementsDropdown(props.language)}
 			</select>
 			<LabelElement labelFor={'elements-present'} text={textUsed.labels.elementsPresent} tooltip={'multiselectTips'} />
 		</div>
 		<div className="flex-field">
 			<select id="elements-absent" className="field" multiple size="9" data-search-category="payload">
 				<option value="">{textUsed.selectDefault}</option>
-				{createElementsDropdown()}
+				{createElementsDropdown(props.language)}
 			</select>
 			<LabelElement labelFor={'elements-absent'} text={textUsed.labels.elementsAbsent} tooltip={'multiselectTips'} />
 		</div>

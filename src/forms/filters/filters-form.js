@@ -6,11 +6,11 @@ import RADIATION_TYPES from '../../constants/radiation-types.js'
 import TEXT_MAP from './translation-map.js'
 
 function createOptions(src, prepend) {
-	let options = [],
-		i = 0,
-		len = src.length;
-	for(; i < len; i++) {
-		options.push(<option key={prepend + i} value={src[i]}>{src[i]}</option>);
+    const len = src.length;
+    let options = [],
+        i = 0;
+    for(; i < len; i++) {
+        options.push(<option key={prepend + i} value={src[i].value}>{src[i].label}</option>);
 	}
 	return options;
 }
@@ -63,7 +63,7 @@ function FiltersForm(props) {
 			<div className="flex-field">
 			<select id="radtype-keyword" className="field" data-search-category="filters" data-filter="radtype">
 				<option value="">{textUsed.selectDefault}</option>
-				{createOptions(RADIATION_TYPES, 'rt')}
+				{createOptions(RADIATION_TYPES[props.language], 'rt')}
 			</select>
 			<LabelElement labelFor={'radtype-keyword'} text={textUsed.fieldset.simple.radType} tooltip={false} />
 			</div>
@@ -113,7 +113,7 @@ function FiltersForm(props) {
 			<div className="flex-field MT32">
 			<select id="crystal-color" className="field" data-search-category="filters" data-filter="crystalcolor">
 				<option value="">{textUsed.selectDefault}</option>
-				{createOptions(NAMED_COLORS, 'nc')}
+				{createOptions(NAMED_COLORS[props.language], 'nc')}
 			</select>
 			<LabelElement labelFor={'crystal-color'} text={textUsed.fieldset.advanced.crystalColor} tooltip={false} />
 			</div>

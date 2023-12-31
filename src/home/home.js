@@ -16,9 +16,9 @@ class Home extends Component {
     constructor(props) {
         super(props);
         this.codPath = 'https://www.crystallography.net/cod';
-        this.corsDomain = 'https://corsproxy.io'; 
+        this.corsDomain = 'https://corsproxy.io';
         this.language = window?.localStorage?.getItem("language-used") || 'en';
-		this.textUsed = TEXT_MAP[this.language];
+        this.textUsed = TEXT_MAP[this.language];
         this.state = {
             download: {
                 text: {
@@ -78,7 +78,7 @@ class Home extends Component {
         e.preventDefault();
         const elements = e.target.elements;
         let i,
-            j, 
+            j,
             val,
             ID,
             seedId,
@@ -88,7 +88,7 @@ class Home extends Component {
             filterData,
             multiselectSeedIdMap = {
                 "elements-absent": "nel",
-                "elements-present": "el"  
+                "elements-present": "el"
             },
             searchData = {
                 payload: {},
@@ -515,7 +515,6 @@ class Home extends Component {
                         }
                     )
                 )
-                
             }, 6000);
         }, 1500);
     }

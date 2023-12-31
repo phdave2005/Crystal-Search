@@ -6,22 +6,22 @@ import SPACE_GROUP_DATA from '../../constants/space-groups.js'
 import TEXT_MAP from './translation-map.js'
 
 function createSpaceGroupOptions() {
-  	let opts = [],
-    	i = 0,
-    	lattices = SPACE_GROUP_DATA.BRAVAIS_LATTICES,
-    	len = lattices.length,
-    	generateOptions = (lattice) => {
-      		const spaceGroups = SPACE_GROUP_DATA.SPACE_GROUPS;
-      		const spaceGroupLength = spaceGroups.length;
-      		let j = 0,
-        	options = [];
-      	for(; j < spaceGroupLength; j++) {
-        	if (spaceGroups[j].lattice === lattice) {
-          		options.push(<option key={spaceGroups[j].id} value={spaceGroups[j].spacegroup} dangerouslySetInnerHTML={{__html: spaceGroups[j].label}}></option>);
-        	}
-      	}
-      	return options;
-    };
+    const lattices = SPACE_GROUP_DATA.BRAVAIS_LATTICES;
+    const len = lattices.length;
+    let opts = [],
+        i = 0,
+        generateOptions = (lattice) => {
+            const spaceGroups = SPACE_GROUP_DATA.SPACE_GROUPS;
+            const spaceGroupLength = spaceGroups.length;
+            let j = 0,
+                options = [];
+            for(; j < spaceGroupLength; j++) {
+                if (spaceGroups[j].lattice === lattice) {
+                    options.push(<option key={spaceGroups[j].id} value={spaceGroups[j].spacegroup} dangerouslySetInnerHTML={{__html: spaceGroups[j].label}}></option>);
+                }
+            }
+            return options;
+        };
   	for(; i < len; i++) {
     	opts.push(<optgroup key={'sgog' + i} label={lattices[i]}>{generateOptions(lattices[i])}</optgroup>);
   	}

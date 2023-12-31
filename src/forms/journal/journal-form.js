@@ -4,11 +4,11 @@ import LabelElement from '../../elements/label/label-element.js'
 import TEXT_MAP from './translation-map.js'
 
 function createOptions() {
-	let options = [],
-		i = 1900,
-		year = new Date().getFullYear();
-	for(; i <= year; i++) {
-		options.push(<option key={'y' + i} value={i}>{i}</option>);
+    const year = new Date().getFullYear();
+    let options = [],
+        i = 1900;
+    for(; i <= year; i++) {
+        options.push(<option key={'y' + i} value={i}>{i}</option>);
 	}
 	return options;
 }
