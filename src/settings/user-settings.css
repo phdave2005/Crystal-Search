@@ -1,3 +1,4 @@
 main#settings {
-    background: #fff
+    background: #fff;
+	overflow-y: auto
 }

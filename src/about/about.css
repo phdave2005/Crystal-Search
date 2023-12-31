@@ -1,6 +1,7 @@
 main#about {
 	background: #fff;
-	padding: 4px
+	padding: 4px;
+	overflow-y: auto
 }
 main#about p {
 	padding-top: 32px;
