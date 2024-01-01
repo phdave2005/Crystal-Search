@@ -129,7 +129,7 @@ class Settings extends Component {
 			<main id="settings">
 				<section className="main-wrapper">
 					<div className={this.state.view.storage.cl}>
-						<h1 dangerouslySetInnerHTML={{__html: this.state.view.storage.text}}></h1>
+						<h2 dangerouslySetInnerHTML={{__html: this.state.view.storage.text}}></h2>
 						<div className="flex-field MT32">
 							<select id="language-used" className="field">
 								{this.languageOptions()}
@@ -143,7 +143,7 @@ class Settings extends Component {
 						<button type="button" className="primary" onClick={this.updateLocalStorage}>{this.state.text.button}</button>
 					</div>
 					<div className={this.state.view.nostorage.cl}>
-						<h1 dangerouslySetInnerHTML={{__html: this.state.view.nostorage.text}}></h1>
+						<h2 dangerouslySetInnerHTML={{__html: this.state.view.nostorage.text}}></h2>
 					</div>
 				</section>
 			</main>

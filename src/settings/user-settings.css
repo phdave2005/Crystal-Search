@@ -1,4 +1,5 @@
 main#settings {
     background: #fff;
-	overflow-y: auto
+	overflow-y: auto;
+    padding: 16px
 }

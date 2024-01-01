@@ -29,8 +29,8 @@ class Help extends Component {
         return (
             <main id="help">
                 <section className="main-wrapper">
-                    <h1>{this.state.text.heading}</h1>
-                    <h2 dangerouslySetInnerHTML={{__html: '&emsp;' + this.state.text.sections.usageTips.subheading}}></h2>
+                    <h2>{this.state.text.heading}</h2>
+                    <h3 dangerouslySetInnerHTML={{__html: '&emsp;' + this.state.text.sections.usageTips.subheading}}></h3>
                     <ul>
                     {
                         this.state.text.sections.usageTips.content.map(content => {
@@ -41,7 +41,7 @@ class Help extends Component {
                     }
                     </ul>
                     <hr />
-                    <h2 dangerouslySetInnerHTML={{__html: '&emsp;' + this.state.text.sections.resources.subheading}}></h2>
+                    <h3 dangerouslySetInnerHTML={{__html: '&emsp;' + this.state.text.sections.resources.subheading}}></h3>
                     <ul>
                     {
                         this.state.text.sections.resources.content.map(content => {

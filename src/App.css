@@ -98,10 +98,12 @@ h1 {
 }
 
 @media (max-width: 600px) {
-	h1 {
-		font-size: 30px
+	header h1 {
+		transform: scale(calc(5/6));
+		margin-left: -24px!important;
+		margin-top: -2px!important
 	}
-	h1 img {
+	header a {
 		transform: scale(calc(5/6))
 	}
 	h1 .svg-a {
@@ -117,6 +119,11 @@ h1 {
 	max-width: 1000px;
 	margin: auto;
 	padding: 8px
+}
+
+.main-wrapper h2 {
+	font-size: 28px;
+	margin-block-start: 0
 }
 
 .M0 {

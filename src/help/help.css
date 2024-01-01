@@ -3,10 +3,10 @@ main#help {
   	padding: 16px;
 	overflow-y: auto
 }
-h2 {
+h3 {
   	font-size: 24px
 }
-h2, ul {
+h3, ul {
   	text-align: left
 }
 ul {
