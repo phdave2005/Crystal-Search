@@ -36,7 +36,6 @@ const App = () => {
         about: textMap[language].about,
         aboutCod: textMap[language].aboutCod
     });
-
     return (
         <BrowserRouter>
             <div className="App">

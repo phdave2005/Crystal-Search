@@ -37,6 +37,7 @@ export const TEXT_MAP = {
             filenameModifier: 'Custom filename modifier (letters/numbers/underscore)'
         },
         button: 'Update',
+        switch: '.cif Mode',
         noStorage: 'Local storage is not supported by this browser.'
     },
     es: {
@@ -50,6 +51,7 @@ export const TEXT_MAP = {
             filenameModifier: 'Modificador de nombre de archivo personalizado (letras/números/guion bajo)'
         },
         button: 'Actualizar',
+        switch: 'Modo .cif',
         noStorage: 'El almacenamiento local no es compatible con este navegador.'
     },
     fr: {
@@ -63,6 +65,7 @@ export const TEXT_MAP = {
             filenameModifier: 'Modificateur de nom de fichier personnalisé (lettres/chiffres/trait de soulignement)'
         },
         button: 'Mettre à Jour',
+        switch: 'Mode .cif',
         noStorage: 'Le stockage local n\'est pas pris en charge par ce navigateur.'
     },
     it: {
@@ -76,6 +79,7 @@ export const TEXT_MAP = {
             filenameModifier: 'Modificatore nome file personalizzato (lettere/numeri/trattino basso)'
         },
         button: 'Aggiornare',
+        switch: 'Modalità .cif',
         noStorage: 'L\'archiviazone locale non è supportate da questo browser.'
     }
 };

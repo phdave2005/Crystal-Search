@@ -3,3 +3,8 @@ main#settings {
 	overflow-y: auto;
     padding: 16px
 }
+
+.react-switch {
+	vertical-align: middle;
+	margin-left: 4px
+}
