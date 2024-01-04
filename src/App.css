@@ -130,6 +130,10 @@ h1 {
   	margin: 0
 }
 
+.MB0 {
+	margin-bottom: 0!important
+}
+
 .MB32 {
   	margin-bottom: 32px
 }
@@ -148,6 +152,10 @@ h1 {
 
 .MR4 {
   	margin-right: 4px!important
+}
+
+.MT0 {
+	margin-top: 0!important
 }
 
 .MT32 {

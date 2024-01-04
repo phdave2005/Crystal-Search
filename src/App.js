@@ -42,7 +42,11 @@ const App = () => {
                 <header className="flex-align-top">
                     <div className="ML4">
                         <h1 className="M0 P0">
-                            <span>Crysta<img src={logo} className="App-logo" alt="logo" /><span className="ML-10">Se<img src={svgA} className="svg-a" alt="logo" /><span className="ML-7">r</span>ch</span></span>
+                            <span>Crysta<img src={logo} className="App-logo" alt="logo" />
+                                <span className="ML-10">Se<img src={svgA} className="svg-a" alt="logo" />
+                                    <span className="ML-7">r</span>
+                                ch</span>
+                            </span>
                         </h1>
                     </div>
                     <div className="action-container MR4">

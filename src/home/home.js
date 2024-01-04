@@ -4,10 +4,11 @@ import './home.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import AdditionalForm from '../forms/additional/additional-form.js'
 import FormulaForm from '../forms/formula/formula-form.js'
+import CifSearchForm from '../forms/cif-search/cif-search-form.js'
 import LatticeForm from '../forms/lattice/lattice-form.js'
 import JournalForm from '../forms/journal/journal-form.js'
 import FiltersForm from '../forms/filters/filters-form.js'
-import { faArrowsRotate, faAtom, faBook, faCube, faEllipsis, faFilter, faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
+import { faArrowsRotate, faAtom, faBook, faCube, faEllipsis, faFile, faFilter, faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
 import PERIODIC_TABLE_DATA from '../constants/periodic-table.js'
 import processing from './processing.svg'
 import TEXT_MAP from './translation-map.js'
@@ -19,17 +20,19 @@ class Home extends Component {
         this.corsDomain = 'https://corsproxy.io';
         this.language = window?.localStorage?.getItem("language-used") || 'en';
         this.textUsed = TEXT_MAP[this.language];
+        const cifModeEnabled = window?.localStorage?.getItem("cif-mode") === '1';
         this.state = {
+            cifMode: cifModeEnabled,
             download: {
                 text: {
                     data: this.textUsed.download.data
                 }
             },
             forms: {
-                active: 'formula',
+                active: cifModeEnabled ? 'cifSearch' : 'formula',
                 sections: {
                     formula: {
-                        show: true,
+                        show: !cifModeEnabled,
                         heading: this.textUsed.heading.formula
                     },
                     lattice: {
@@ -47,6 +50,10 @@ class Home extends Component {
                     filters: {
                         show: false,
                         heading: this.textUsed.heading.filters
+                    },
+                    cifSearch: {
+                        show: cifModeEnabled,
+                        heading: this.textUsed.heading.cifSearch
                     }
                 },
                 validation: {
@@ -206,8 +213,14 @@ class Home extends Component {
                 this.processResponse(mockResponseData, filters);
             });
         } else {
-            const results = this.codPath + '/result?' + this.constructedQueryString(payload) + '&format=json';
-            axios.get(this.corsDomain + '/?' + encodeURIComponent(results))
+            let getUrl;
+            if (this.state.cifMode) {
+                getUrl = this.constructDirectCifUrl(payload?.cif?.value);
+            } else {
+                const results = this.codPath + '/result?' + this.constructedQueryString(payload) + '&format=json';
+                getUrl = this.corsDomain + '/?' + encodeURIComponent(results);
+            }
+            axios.get(getUrl)
             .then((response) => {
                 if (response?.data?.length) {
                     this.processResponse(response.data, filters);
@@ -305,10 +318,14 @@ class Home extends Component {
         }
     }
 
+    constructDirectCifUrl(cifId) {
+        const url = this.codPath + '/' + cifId + '.cif';
+        return this.corsDomain + '/?' + encodeURIComponent(url);
+    }
+
     async processAdvancedFilters(data, filters) {
         const getCifContents = async (cifId) => {
-            const url = this.codPath + '/' + cifId + '.cif';
-            return axios.get(this.corsDomain + '/?' + encodeURIComponent(url))
+            return axios.get(this.constructDirectCifUrl(cifId))
             .then((response) => {
                 return this.filterCifContents(response.data, filters) || 'none';
             })
@@ -472,12 +489,19 @@ class Home extends Component {
     downloadData(data) {
         const date = new Date();
         const str = JSON.stringify(data, undefined, 2);
+        let mimeInfo = this.state.cifMode ? {
+            type: "chemical/x-cif",
+            ext: ".cif"
+        } : {
+            type: "application/json",
+            ext: ".json"
+        };
         const blob = new Blob([str], {
-            type: "application/json"
+            type: mimeInfo.type
         });
         const downloadLink = document.getElementById("download");
         downloadLink.setAttribute("href", URL.createObjectURL(blob));
-        downloadLink.setAttribute("download", this.state.download.text.data + "_" + (window?.localStorage?.getItem("filename-modifier") ? window.localStorage.getItem("filename-modifier") + '_' : '') + date.toISOString().split("T")[0] + "-" + date.getTime() + ".json");
+        downloadLink.setAttribute("download", this.state.download.text.data + "_" + (window?.localStorage?.getItem("filename-modifier") ? window.localStorage.getItem("filename-modifier") + '_' : '') + date.toISOString().split("T")[0] + "-" + date.getTime() + mimeInfo.ext);
         downloadLink.click();
         setTimeout(() => {
             this.setState(
@@ -582,6 +606,9 @@ class Home extends Component {
                         case 'chemicalFormula':
                             invalid = !this.isHillNotation(f.value);
                         break;
+                        case 'cif':
+                            invalid = !f.value.match(/^\d{7}$/) && (f.value.charAt(0)!== '0');
+                        break;
                         case 'dateCannotExceedToday':
                             invalid = new Date(f.value) > new Date();
                         break;
@@ -590,7 +617,7 @@ class Home extends Component {
                         break;
                         case 'elementPresentAbsentContradiction':
                             const correspondingAbsentId = f.id.replace(/present$/i, 'absent');
-                            const absentField = document.getElementById(correspondingAbsentId);console.log(f.value.length, f.options);console.log(absentField.value.length, absentField.options);
+                            const absentField = document.getElementById(correspondingAbsentId);
                             const multipleOptionIntersection = (optionsSetA, optionsSetB) => {
                                 let i;
                                 const selectedA = [],
@@ -608,6 +635,19 @@ class Home extends Component {
                                 return selectedB.filter(el => selectedA.includes(el)).length;
                             };
                             invalid = !!absentField && absentField.value.trim() && multipleOptionIntersection(f.options, absentField.options);
+                        break;
+                        case 'idSet':
+                            let j = 0,
+                                trimmed;
+                            const splitSet = f.value.split(",");
+                            const splitLen = splitSet.length;
+                            for(; j < splitLen; j++) {
+                                trimmed = splitSet[j].trim();
+                                if (!trimmed.match(/^(\d|%){7}$/) || (trimmed.charAt(0) === '0')) {
+                                    invalid = true;
+                                    break;
+                                }
+                            }
                         break;
                         case 'minCannotExceedMax':
                             const correspondingMaximumId = f.id.replace(/min/i, 'max');
@@ -645,18 +685,18 @@ class Home extends Component {
             validationSection = activeSection[0].querySelectorAll("[data-validations]");
             for(i in validationSection) {
                 id = validationSection[i].id;
-                field = document.getElementById(validationSection[i].id);
+                field = document.getElementById(id);
                 if (!!field) {
                     errorLabels = validate(field);
                     if (errorLabels?.length) {
                         hasError = true;
                         this.markInvalidField({
-                            elem: document.getElementById(id),
+                            elem: field,
                             errorLabel: errorLabels[0]
                         });
                     } else {
                         this.clearInvalidField({
-                            elem: document.getElementById(id),
+                            elem: field,
                             errorLabel: ''
                         });
                     }
@@ -753,13 +793,14 @@ class Home extends Component {
             }
         }
         const buttonParameters = [
-            { id: 0, text: this.textUsed.menu.button.formula, icon: faAtom, class: 'form', identifier: 'formula', fn: processMenuClick },
-            { id: 1, text: this.textUsed.menu.button.lattice, icon: faCube, class: 'form', identifier: 'lattice', fn: processMenuClick },
-            { id: 2, text: this.textUsed.menu.button.journal, icon: faBook, class: 'form', identifier: 'journal', fn: processMenuClick },
-            { id: 3, text: this.textUsed.menu.button.additional, icon: faEllipsis, class: 'form', identifier: 'additional', fn: processMenuClick },
-            { id: 4, text: this.textUsed.menu.button.filters, icon: faFilter, class: 'form', identifier: 'filters', fn: processMenuClick },
-            { id: 5, text: this.textUsed.menu.button.reset, icon: faArrowsRotate, class: 'MT40 warning', identifier: 'reset', fn: resetForm },
-            { id: 6, text: this.textUsed.menu.button.search, icon: faMagnifyingGlass, class: 'MT40 primary', identifier: 'search', fn: this.search }
+            { id: 0, text: this.textUsed.menu.button.cifSearch, icon: faFile, class: 'form first' + (!this.state.cifMode ? ' DN' : ''), identifier: 'cifSearch', fn: processMenuClick },
+            { id: 1, text: this.textUsed.menu.button.formula, icon: faAtom, class: 'form first' + (this.state.cifMode ? ' DN' : ''), identifier: 'formula', fn: processMenuClick },
+            { id: 2, text: this.textUsed.menu.button.lattice, icon: faCube, class: 'form' + (this.state.cifMode ? ' DN' : ''), identifier: 'lattice', fn: processMenuClick },
+            { id: 3, text: this.textUsed.menu.button.journal, icon: faBook, class: 'form' + (this.state.cifMode ? ' DN' : ''), identifier: 'journal', fn: processMenuClick },
+            { id: 4, text: this.textUsed.menu.button.additional, icon: faEllipsis, class: 'form' + (this.state.cifMode ? ' DN' : ''), identifier: 'additional', fn: processMenuClick },
+            { id: 5, text: this.textUsed.menu.button.filters, icon: faFilter, class: 'form' + (this.state.cifMode ? ' DN' : ''), identifier: 'filters', fn: processMenuClick },
+            { id: 6, text: this.textUsed.menu.button.reset, icon: faArrowsRotate, class: 'MT40 warning', identifier: 'reset', fn: resetForm },
+            { id: 7, text: this.textUsed.menu.button.search, icon: faMagnifyingGlass, class: 'MT40 primary', identifier: 'search', fn: this.search }
         ];
         return (
             <main>
@@ -770,7 +811,7 @@ class Home extends Component {
                         {
                             buttonParameters.map(parameter => {
                                 return (
-                                    <li key={'navbutton' + parameter.id}>
+                                    <li key={'navbutton' + parameter.id} className={parameter.class.match(/\sDN/) ? 'MB0' : ''}>
                                         <button type="button" className={parameter.class} data-identifier={parameter.identifier} data-testid={parameter.identifier + '-button'} onClick={parameter.fn}>
                                             <FontAwesomeIcon icon={parameter.icon} />
                                             <span>{parameter.text}</span>
@@ -791,6 +832,7 @@ class Home extends Component {
                         </div>
                         <form id="parameters-form" data-testid="form" onSubmit={this.processFormSubmission}>
                             <h2 className="form-heading">{this.state.forms.sections[this.state.forms.active].heading}</h2>
+                            <CifSearchForm class={this.state.forms.sections.cifSearch.show ? 'active' : 'DN'} language={this.language} />
                             <FormulaForm class={this.state.forms.sections.formula.show ? 'active' : 'DN'} language={this.language} />
                             <LatticeForm class={this.state.forms.sections.lattice.show ? 'active' : 'DN'} language={this.language} />
                             <JournalForm class={this.state.forms.sections.journal.show ? 'active' : 'DN'} language={this.language} />

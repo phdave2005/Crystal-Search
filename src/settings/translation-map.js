@@ -38,6 +38,10 @@ export const TEXT_MAP = {
         },
         button: 'Update',
         switch: '.cif Mode',
+        storageEvent: {
+            success: 'Your updated settings have been saved',
+            fail: 'No update was made'
+        },
         noStorage: 'Local storage is not supported by this browser.'
     },
     es: {
@@ -52,6 +56,10 @@ export const TEXT_MAP = {
         },
         button: 'Actualizar',
         switch: 'Modo .cif',
+        storageEvent: {
+            success: 'Tus configuraciones actualizadas han sido guardadas',
+            fail: 'No se realizó ninguna actualización'
+        },
         noStorage: 'El almacenamiento local no es compatible con este navegador.'
     },
     fr: {
@@ -66,6 +74,10 @@ export const TEXT_MAP = {
         },
         button: 'Mettre à Jour',
         switch: 'Mode .cif',
+        storageEvent: {
+            success: 'Vos paramètres mis à jour ont été enregistrés',
+            fail: 'Aucune mise à jour n\'a été effectuée'
+        },
         noStorage: 'Le stockage local n\'est pas pris en charge par ce navigateur.'
     },
     it: {
@@ -80,6 +92,10 @@ export const TEXT_MAP = {
         },
         button: 'Aggiornare',
         switch: 'Modalità .cif',
+        storageEvent: {
+            success: 'Le tue impostazioni aggiornate sono state salvate',
+            fail: 'Non è stato effettuato alcun aggiornamento'
+        },
         noStorage: 'L\'archiviazone locale non è supportate da questo browser.'
     }
 };

@@ -34,6 +34,10 @@ main {
 	margin: 20px 0
 }
 
+#main-grid-menu ul li {
+	margin-top: 0!important
+}
+
 #main-grid-menu ul li > button {
 	width: 90%
 }

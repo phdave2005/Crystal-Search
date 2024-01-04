@@ -12,6 +12,10 @@ class Settings extends Component {
         this.state = {
             checked: false,
             hasStorage: false,
+            storageEvent: {
+                text: '',
+                cl: 'DN'
+            },
             text: {
                 title: '',
                 label: {
@@ -41,12 +45,14 @@ class Settings extends Component {
             this.setSettingsState();
             document.getElementById("language-used").value = this.languageUsed;
             document.getElementById("filename-modifier").value = window.localStorage.getItem("filename-modifier") || '';
+            document.getElementById("cif-mode").value = window.localStorage.getItem("cif-mode") || '0';
         }
     }
 
     setSettingsState() {
         const textUsed = LANGUAGE_INFO.TEXT_MAP[this.languageUsed];
         this.setState({
+            checked: document.getElementById("cif-mode").value === '1',
             hasStorage: true,
             text: {
                 label: {
@@ -93,7 +99,9 @@ class Settings extends Component {
     updateLocalStorage = () => {
         const set = document.getElementsByClassName("field");
         const storage = window.localStorage;
-        let i, val;
+        const storageJSONInitial = JSON.stringify(storage);
+        let i, val, storageJSONFinal,
+            textUsed = LANGUAGE_INFO.TEXT_MAP[this.languageUsed];
         for(i in set) {
             if (set[i]?.nodeName) {
                 val = set[i].value;
@@ -115,14 +123,35 @@ class Settings extends Component {
                 }
             }
         }
+        storageJSONFinal = JSON.stringify(localStorage);
+        textUsed = LANGUAGE_INFO.TEXT_MAP[this.languageUsed];
+        this.setState({
+            storageEvent: (storageJSONInitial !== storageJSONFinal) ? {
+                text: textUsed.storageEvent.success,
+                cl: ' success'
+            } : {
+                text: textUsed.storageEvent.fail,
+                cl: ' fail'
+            }
+        });
+        setTimeout(() => {
+            this.setState({
+                storageEvent: (storageJSONInitial !== storageJSONFinal) ? {
+                    text: '',
+                    cl: ' DN'
+                } : {
+                    text: '',
+                    cl: ' DN'
+                }
+            });
+        }, 5000);
     }
 
     languageOptions() {
+        const src = LANGUAGE_INFO.LANGUAGES[this.languageUsed];
+        const len = src.length;
         let options = [],
-            i = 0,
-            selectedLanguage = window?.localStorage?.getItem("language-used") || 'en',
-            src = LANGUAGE_INFO.LANGUAGES[selectedLanguage],
-            len = src.length;
+            i = 0;
         for(; i < len; i++) {
             options.push(<option key={'l' + i} value={src[i].value}>{src[i].label}</option>);
         }
@@ -131,12 +160,14 @@ class Settings extends Component {
 
     handleChange(checked) {
         this.setState({checked: checked});
+        document.getElementById("cif-mode").value = Number(checked).toString();
     }
 
     render() {
         return ( 
             <main id="settings">
                 <section className="main-wrapper">
+                    <p className={"dialog " + this.state.storageEvent.cl} data-identifier="info">{this.state.storageEvent.text}</p>
                     <div className={this.state.view.storage.cl}>
                         <h2 dangerouslySetInnerHTML={{__html: this.state.view.storage.text}}></h2>
                         <div className="flex-field MT32">
@@ -147,11 +178,12 @@ class Settings extends Component {
                         </div>
                         <div className="flex-field MT32">
                             <input id="filename-modifier" className="field" type="text" />
-                            <LabelElement labelFor={'filename-modifier'} text={this.state.text.label.filenameModifier} tooltip={'filenameModifier'} />
+                            <LabelElement labelFor={'filename-modifier'} text={this.state.text.label.filenameModifier} language={this.languageUsed} tooltip={'filenameModifier'} />
                         </div>
                         <div className="flex-field MT32">
                             <label>
                                 <span>{this.state.text.switch}</span>
+                                <input id="cif-mode" type="hidden" className="field" />
                                 <Switch onChange={this.handleChange} checked={this.state.checked} className="react-switch" />
                             </label>
                         </div>

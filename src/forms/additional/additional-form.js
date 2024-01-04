@@ -28,8 +28,12 @@ function AdditionalForm(props) {
         </div>
       </div>
       <div className="flex-field">
-        <input id="metadata" className="field" type="text" data-search-category="payload" />
-        <LabelElement labelFor={'metadata'} text={textUsed.labels.metadata} tooltip={false} />
+        <input id="id" className="field" type="text" data-search-category="payload" data-validations="idSet" />
+        <LabelElement labelFor={'id'} text={textUsed.labels.idSet} language={props.language} tooltip={'idSet'} />
+      </div>
+      <div className="flex-field">
+        <input id="text" className="field" type="text" data-search-category="payload" />
+        <LabelElement labelFor={'text'} text={textUsed.labels.text} tooltip={false} />
       </div>
     </section>
   );
