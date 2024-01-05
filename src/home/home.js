@@ -143,42 +143,28 @@ class Home extends Component {
             }
         }
         if (Object.keys(searchData.payload).length) {
-            this.setState(
-                Object.assign(
-                    this.state.forms,
-                    {
-                        validation: {
-                            error: {
-                                cl: 'DN invalid',
-                                text: ''
-                            },
-                            processing: {
-                                cl: '',
-                                text: null
-                            }
-                        }
-                    }
-                )
-            );
+            this.setState(state => (state.forms.validation = {
+                error: {
+                    cl: 'DN invalid',
+                    text: ''
+                },
+                processing: {
+                    cl: '',
+                    text: null
+                }
+            }, state));
             this.fetchCIFs(searchData);
-        } else{
-            this.setState(
-                Object.assign(
-                    this.state.forms,
-                    {
-                        validation: {
-                            error: {
-                                cl: 'invalid',
-                                text: this.textUsed.validation.error.oneParameter
-                            },
-                            processing: {
-                                cl: 'DN',
-                                text: null
-                            }
-                        }
-                    }
-                )
-            );
+        } else {
+            this.setState(state => (state.forms.validation = {
+                error: {
+                    cl: 'invalid',
+                    text: this.textUsed.validation.error.oneParameter
+                },
+                processing: {
+                    cl: 'DN',
+                    text: null
+                }
+            }, state));
         }
     }
 
@@ -225,43 +211,29 @@ class Home extends Component {
                 if (response?.data?.length) {
                     this.processResponse(response.data, filters);
                 } else {
-                    this.setState(
-                        Object.assign(
-                            this.state.forms,
-                            {
-                                validation: {
-                                    error: {
-                                        cl: 'invalid',
-                                        text: this.textUsed.validation.error.noData
-                                    },
-                                    processing: {
-                                        cl: 'DN',
-                                        text: null
-                                    }
-                                }
-                            }
-                        )
-                    );
+                    this.setState(state => (state.forms.validation = {
+                        error: {
+                            cl: 'invalid',
+                            text: this.textUsed.validation.error.noData
+                        },
+                        processing: {
+                            cl: 'DN',
+                            text: null
+                        }
+                    }, state));
                 }
             })
             .catch((error) => {
-                this.setState(
-                    Object.assign(
-                        this.state.forms,
-                        {
-                            validation: {
-                                error: {
-                                    cl: 'invalid',
-                                    text: this.textUsed.validation.error.api
-                                },
-                                processing: {
-                                    cl: 'DN',
-                                    text: null
-                                }
-                            }
-                        }
-                    )
-                );
+                this.setState(state => (state.forms.validation = {
+                    error: {
+                        cl: 'invalid',
+                        text: this.textUsed.validation.error.api
+                    },
+                    processing: {
+                        cl: 'DN',
+                        text: null
+                    }
+                }, state));
             });
         }
     }
@@ -504,41 +476,27 @@ class Home extends Component {
         downloadLink.setAttribute("download", this.state.download.text.data + "_" + (window?.localStorage?.getItem("filename-modifier") ? window.localStorage.getItem("filename-modifier") + '_' : '') + date.toISOString().split("T")[0] + "-" + date.getTime() + mimeInfo.ext);
         downloadLink.click();
         setTimeout(() => {
-            this.setState(
-                Object.assign(
-                    this.state.forms,
-                    {
-                        validation: {
-                            error: {
-                                cl: 'valid',
-                                text: this.textUsed.validation.success.downloaded
-                            },
-                            processing: {
-                                cl: 'DN',
-                                text: null
-                            }
-                        }
-                    }
-                )
-            )
+            this.setState(state => (state.forms.validation = {
+                error: {
+                    cl: 'valid',
+                    text: this.textUsed.validation.success.downloaded
+                },
+                processing: {
+                    cl: 'DN',
+                    text: null
+                }
+            }, state));
             setTimeout(() => {
-                this.setState(
-                    Object.assign(
-                        this.state.forms,
-                        {
-                            validation: {
-                                error: {
-                                    cl: 'DN',
-                                    text: ''
-                                },
-                                processing: {
-                                    cl: 'DN',
-                                    text: null
-                                }
-                            }
-                        }
-                    )
-                )
+                this.setState(state => (state.forms.validation = {
+                    error: {
+                        cl: 'DN',
+                        text: ''
+                    },
+                    processing: {
+                        cl: 'DN',
+                        text: null
+                    }
+                }, state));
             }, 6000);
         }, 1500);
     }
