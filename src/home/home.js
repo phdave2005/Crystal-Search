@@ -209,7 +209,9 @@ class Home extends Component {
             axios.get(getUrl)
             .then((response) => {
                 if (response?.data?.length) {
-                    this.processResponse(response.data, filters);
+                    const maximumSearchResults = Number(document.getElementById("max-search-results").value);
+                    const searchHitLimitedData = (!isNaN(maximumSearchResults) && maximumSearchResults.toString().match(/^\d+$/) && (maximumSearchResults > 0) && (maximumSearchResults < response.data.length)) ? response.data.slice(0, maximumSearchResults) : response.data;
+                    this.processResponse(searchHitLimitedData, filters);
                 } else {
                     this.setState(state => (state.forms.validation = {
                         error: {

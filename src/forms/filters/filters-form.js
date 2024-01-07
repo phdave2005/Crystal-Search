@@ -61,11 +61,18 @@ function FiltersForm(props) {
 				<LabelElement labelFor={'chemicalname-keyword'} text={textUsed.fieldset.simple.chemicalName} tooltip={false} />
 			</div>
 			<div className="flex-field">
-			<select id="radtype-keyword" className="field" data-search-category="filters" data-filter="radtype">
-				<option value="">{textUsed.selectDefault}</option>
-				{createOptions(RADIATION_TYPES[props.language], 'rt')}
-			</select>
-			<LabelElement labelFor={'radtype-keyword'} text={textUsed.fieldset.simple.radType} tooltip={false} />
+			    <select id="radtype-keyword" className="field" data-search-category="filters" data-filter="radtype">
+				    <option value="">{textUsed.selectDefault}</option>
+				    {createOptions(RADIATION_TYPES[props.language], 'rt')}
+			    </select>
+			    <LabelElement labelFor={'radtype-keyword'} text={textUsed.fieldset.simple.radType} tooltip={false} />
+			</div>
+			<div className="flex-field-half-wrapper MT32">
+				<div className="flex-field half">
+					<input id="max-search-results" className="field" type="number" data-validations="positiveInteger" data-search-category="filters" />
+					<LabelElement labelFor={'max-search-results'} text={textUsed.fieldset.simple.maxSearchResults} tooltip={false} />
+				</div>
+				<div></div>
 			</div>
 		</fieldset>
 		<fieldset className="MT32">
