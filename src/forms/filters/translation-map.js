@@ -10,7 +10,10 @@ export const TEXT_MAP = {
                 commonName: 'Common name keyword',
                 chemicalName: 'Chemical name keyword',
                 radType: 'Radiation type',
-                maxSearchResults: 'Maximum search results'
+                maxSearchResults: {
+                    label: 'Search results limit',
+                    placeholder: 'Set the result limit'
+                }
             },
             advanced: {
                 minDate: 'Start date',
@@ -41,7 +44,10 @@ export const TEXT_MAP = {
                 commonName: 'Palabra clave de nombre común',
                 chemicalName: 'Palabra clave del nombre químico',
                 radType: 'Tipo de radiación',
-                maxSearchResults: 'Resultados de búsqueda máximos'
+                maxSearchResults: {
+                    label: 'Límite de resultados de búsqueda',
+                    placeholder: 'Establecer el límite de resultados'
+                }
             },
             advanced: {
                 minDate: 'Fecha de inicio',
@@ -72,7 +78,10 @@ export const TEXT_MAP = {
                 commonName: 'Mot-clé de nom commun',
                 chemicalName: 'Mot-clé du nom chimique',
                 radType: 'Type de rayonnement',
-                maxSearchResults: 'Résultats de recherche maximaux'
+                maxSearchResults: {
+                    label: 'Limite des résultats de recherche',
+                    placeholder: 'Définir la limite de résultat'
+                }
             },
             advanced: {
                 minDate: 'Date de début',
@@ -103,7 +112,10 @@ export const TEXT_MAP = {
                 commonName: 'Parola chiave nome comune',
                 chemicalName: 'Parola chiave del nome chimico',
                 radType: 'Tipo di radiazione',
-                maxSearchResults: 'Risultati di ricerca massimi'
+                maxSearchResults: {
+                    label: 'Limite dei risultati di ricerca',
+                    placeholder: 'Imposta il limite dei risultati'
+                }
             },
             advanced: {
                 minDate: 'Data d\'inizio',
