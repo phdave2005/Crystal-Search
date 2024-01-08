@@ -168,7 +168,7 @@ class Home extends Component {
         }
     }
 
-    constructedQueryString(data) {
+    constructQueryString(data) {
         const parameters = [];
         let i, parameter, value;
         for(i in data) {
@@ -203,7 +203,7 @@ class Home extends Component {
             if (this.state.cifMode) {
                 getUrl = this.constructDirectCifUrl(payload?.cif?.value);
             } else {
-                const results = this.codPath + '/result?' + this.constructedQueryString(payload) + '&format=json';
+                const results = this.codPath + '/result?' + this.constructQueryString(payload) + '&format=json';
                 getUrl = this.corsDomain + '/?' + encodeURIComponent(results);
             }
             axios.get(getUrl)

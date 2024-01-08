@@ -69,7 +69,7 @@ function FiltersForm(props) {
 			</div>
 			<div className="flex-field-half-wrapper MT32">
 				<div className="flex-field half">
-					<input id="max-search-results" placeholder={textUsed.fieldset.simple.maxSearchResults.placeholder} className="field" type="number" data-validations="positiveInteger" data-search-category="filters" />
+					<input id="max-search-results" placeholder={textUsed.fieldset.simple.maxSearchResults.placeholder} className="field" type="number" data-validations="positiveInteger" data-search-category="filters" onKeyUp={handleNumberChange} />
 					<LabelElement labelFor={'max-search-results'} text={textUsed.fieldset.simple.maxSearchResults.label} tooltip={false} />
 				</div>
 				<div></div>
