@@ -89,31 +89,31 @@ function FiltersForm(props) {
 			</div>
 			<div className="flex-field-half-wrapper MT32">
 				<div className="flex-field half">
-					<input id="min-density" className="field" type="number" min="0" step="0.1" data-validations="positiveNumber,minCannotExceedMax" data-search-category="filters" data-filter="mindensity" onKeyUp={handleNumberChange} />
+					<input id="min-density" className="field" type="number" min="0" step="any" data-validations="positiveNumber,minCannotExceedMax" data-search-category="filters" data-filter="mindensity" onKeyUp={handleNumberChange} />
 					<LabelElement labelFor={'min-density'} text={textUsed.fieldset.advanced.minDensity} tooltip={false} />
 				</div>
 				<div className="flex-field half">
-					<input id="max-density" className="field" type="number" min="0" step="0.1" data-validations="positiveNumber" data-search-category="filters" data-filter="maxdensity" onKeyUp={handleNumberChange} />
+					<input id="max-density" className="field" type="number" min="0" step="any" data-validations="positiveNumber" data-search-category="filters" data-filter="maxdensity" onKeyUp={handleNumberChange} />
 					<LabelElement labelFor={'max-density'} text={textUsed.fieldset.advanced.maxDensity} tooltip={false} />
 				</div>
 			</div>
 			<div className="flex-field-half-wrapper MT32">
 			<div className="flex-field half">
-				<input id="min-molecular-weight" className="field" type="number" min="0" data-validations="positiveNumber,minCannotExceedMax" data-search-category="filters" data-filter="minmolwt" onKeyUp={handleNumberChange} />
+				<input id="min-molecular-weight" className="field" type="number" min="0" step="any" data-validations="positiveNumber,minCannotExceedMax" data-search-category="filters" data-filter="minmolwt" onKeyUp={handleNumberChange} />
 				<LabelElement labelFor={'min-molecular-weight'} text={textUsed.fieldset.advanced.minWeight} tooltip={false} />
 			</div>
 			<div className="flex-field half">
-				<input id="max-molecular-weight" className="field" type="number" min="0" data-validations="positiveNumber" data-search-category="filters" data-filter="maxmolwt" onKeyUp={handleNumberChange} />
+				<input id="max-molecular-weight" className="field" type="number" min="0" step="any" data-validations="positiveNumber" data-search-category="filters" data-filter="maxmolwt" onKeyUp={handleNumberChange} />
 				<LabelElement labelFor={'max-molecular-weight'} text={textUsed.fieldset.advanced.maxWeight} tooltip={false} />
 			</div>
 			</div>
 			<div className="flex-field-half-wrapper MT32">
 				<div className="flex-field half">
-					<input id="min-rfactor" className="field" type="number" min="0" step="0.1" data-validations="positiveNumber,minCannotExceedMax" data-search-category="filters" data-filter="minrfactor" onKeyUp={handleNumberChange} />
+					<input id="min-rfactor" className="field" type="number" min="0" step="any" data-validations="positiveNumber,minCannotExceedMax" data-search-category="filters" data-filter="minrfactor" onKeyUp={handleNumberChange} />
 					<LabelElement labelFor={'min-rfactor'} text={textUsed.fieldset.advanced.minR} />
 				</div>
 				<div className="flex-field half">
-					<input id="max-rfactor" className="field" type="number" min="0" step="0.1" data-validations="positiveNumber" data-search-category="filters" data-filter="maxrfactor" onKeyUp={handleNumberChange} />
+					<input id="max-rfactor" className="field" type="number" min="0" step="any" data-validations="positiveNumber" data-search-category="filters" data-filter="maxrfactor" onKeyUp={handleNumberChange} />
 					<LabelElement labelFor={'max-rfactor'} text={textUsed.fieldset.advanced.maxR} tooltip={false} />
 				</div>
 			</div>

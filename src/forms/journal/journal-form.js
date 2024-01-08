@@ -30,11 +30,11 @@ function JournalForm(props) {
 		</div>
 		<div className="flex-field-half-wrapper">
 			<div className="flex-field half">
-				<input id="volume" className="field" type="number" min="0" data-search-category="payload" />
+				<input id="volume" className="field" type="number" min="0" step="any" data-search-category="payload" />
 				<LabelElement labelFor={'volume'} text={textUsed.labels.volume} tooltip={false} />
 			</div>
 			<div className="flex-field half">
-				<input id="issue" className="field" type="number" min="0" step="1" data-search-category="payload" />
+				<input id="issue" className="field" type="number" min="0" step="any" data-search-category="payload" />
 				<LabelElement labelFor={'issue'} text={textUsed.labels.issue} tooltip={false} />
 			</div>
 		</div>
