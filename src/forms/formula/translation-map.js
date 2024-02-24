@@ -1,4 +1,14 @@
 export const TEXT_MAP = {
+    de: {
+        labels: {
+            chemicalFormula: 'Chemische Formel',
+            elementsPresent: 'Elemente vorhanden',
+            elementsAbsent: 'Elemente fehlen',
+            minimumDistinct: 'Minimale unterschiedliche Elemente',
+            maximumDistinct: 'Maximal unterschiedliche Elemente'
+        },
+        selectDefault: 'Wählen'
+    },
     en: {
         labels: {
             chemicalFormula: 'Chemical formula',
@@ -38,6 +48,16 @@ export const TEXT_MAP = {
             maximumDistinct: 'Massimo elementi distinti'
         },
         selectDefault: 'Selezionare'
+    },
+    ru: {
+        labels: {
+            chemicalFormula: 'Химическая формула',
+            elementsPresent: 'Элементы присутствуют',
+            elementsAbsent: 'Элементы отсутствуют',
+            minimumDistinct: 'Минимум различных элементов',
+            maximumDistinct: 'Максимум различных элементов'
+        },
+        selectDefault: 'Выбирать'
     }
 };
 

@@ -1,4 +1,51 @@
 export const TEXT_MAP = {
+    de: {
+        heading: 'Hilfethemen',
+        sections: {
+            usageTips: {
+                subheading: 'Nutzungstipps',
+                content: [
+                    {
+                        id: 0,
+                        text: 'Wählen Sie mindestens EINEN Suchparameter aus Formel, Gitter, Journal oder Zusätzlich aus.'
+                    },
+                    {
+                        id: 1,
+                        text: 'Filter können optional ausgewählt werden.'
+                    },
+                    {
+                        id: 2,
+                        text: 'Einfache Filter fügen nicht mehr als einen Bruchteil einer Sekunde zusätzliche Scanzeit hinzu, erweiterte Filter erfordern jedoch mehrere zusätzliche Sekunden pro Filter.'
+                    },
+                    {
+                        id: 3,
+                        text: 'Suchtreffer werden automatisch als .json-Datei heruntergeladen.'
+                    },
+                    {
+                        id: 4,
+                        text: 'Verfügbare Sprachen (Stand Dezember 2023) sind Englisch, Spanisch, Französisch, Deutsch, Russisch und Italienisch. Dies kann in den Einstellungen geändert werden.'
+                    }
+                ]
+            },
+            resources: {
+                subheading: 'Zusätzliche Ressourcen',
+                content: [
+                    {
+                        id: 0,
+                        text: '<a href="https://en.wikipedia.org/wiki/Chemical_formula#:~:text=The%20Hill%20system%20(or%20Hill,of%20all%20other%20chemical%20elements" target="_blank" rel="noreferrer">Hill-Notation</a> für chemische Formeln'
+                    },
+                    {
+                        id: 1,
+                        text: 'Notation der <a href="https://en.wikipedia.org/wiki/Hermann%E2%80%93Mauguin_notation" target="_blank" rel="noreferrer">Raumfahrtgruppe Hermann-Mauguin</a>'
+                    },
+                    {
+                        id: 2,
+                        text: 'Verwenden eines <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/multiple" target="_blank" rel="noreferrer">Dropdown-Menüs mit Mehrfachauswahl</a>'
+                    }
+                ]
+            }
+        }
+    },
     en: {
         heading: 'Help Topics',
         sections: {
@@ -23,7 +70,7 @@ export const TEXT_MAP = {
                     },
                     {
                         id: 4,
-                        text: 'Available languages (as of December 2023) are English, Spanish, French, and Italian. This can be changed in Settings.'
+                        text: 'Available languages (as of December 2023) are English, Spanish, Frenchh, German, Russian, and Italian. This can be changed in Settings.'
                     }
                 ]
             },
@@ -70,7 +117,7 @@ export const TEXT_MAP = {
                     },
                     {
                         id: 4,
-                        text: 'Los idiomas disponsibles (a diciembre de 2023) son inglés, español, francés, e italiano. Esto se peude cambiar en Configuración.'
+                        text: 'Los idiomas disponsibles (a diciembre de 2023) son inglés, español, francés, aleman, ruso, e italiano. Esto se peude cambiar en Configuración.'
                     }
                 ]
             },
@@ -117,7 +164,7 @@ export const TEXT_MAP = {
                     },
                     {
                         id: 4,
-                        text: 'Les langues disponsibles (à partir décembre 2023) sont l\'anglais, l\'espagnol, le français et l\'italian. Cela peut être modifié dans les Paramètres.'
+                        text: 'Les langues disponsibles (à partir décembre 2023) sont l\'anglais, l\'espagnol, le français, allemand, russe, et l\'italian. Cela peut être modifié dans les Paramètres.'
                     }
                 ]
             },
@@ -164,7 +211,7 @@ export const TEXT_MAP = {
                     },
                     {
                         id: 4,
-                        text: 'Le lingue disponibili (a dicembre 2023) sono inglese, spagnolo, francese e italiano. Questo può essere modificato in Impostazioni.'
+                        text: 'Le lingue disponibili (a dicembre 2023) sono inglese, spagnolo, francese, tedesco, russo, e italiano. Questo può essere modificato in Impostazioni.'
                     }
                 ]
             },
@@ -182,6 +229,53 @@ export const TEXT_MAP = {
                     {
                         id: 2,
                         text: 'Utilizzando un <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/multiple" target="_blank" rel="noreferrer">menu a discesa a selezione multipla</a>'
+                    }
+                ]
+            }
+        }
+    },
+    ru: {
+        heading: 'Разделы помощи',
+        sections: {
+            usageTips: {
+                subheading: 'Советы по использованию',
+                content: [
+                    {
+                        id: 0,
+                        text: 'Выберите хотя бы ОДИН параметр поиска: «Формула», «Решетка», «Журнал» или «Дополнительно».'
+                    },
+                    {
+                        id: 1,
+                        text: 'Фильтры можно выбирать по желанию.'
+                    },
+                    {
+                        id: 2,
+                        text: 'Простые фильтры добавят не более доли секунды дополнительного времени сканирования, а расширенные фильтры потребуют несколько дополнительных секунд на каждый фильтр.'
+                    },
+                    {
+                        id: 3,
+                        text: 'Результаты поиска будут автоматически загружены в виде файла .json.'
+                    },
+                    {
+                        id: 4,
+                        text: 'Доступные языки (по состоянию на декабрь 2023 г.): английский, испанский, французский, немецкий, русский и итальянский. Это можно изменить в настройках.'
+                    }
+                ]
+            },
+            resources: {
+                subheading: 'Дополнительные ресурсы',
+                content: [
+                    {
+                        id: 0,
+                        text: '<a href="https://en.wikipedia.org/wiki/Chemical_formula#:~:text=The%20Hill%20system%20(or%20Hill,of%20all%20other%20chemical%20elements" target="_blank" rel="noreferrer">Обозначение Хилла</a> для химических формул'
+                    },
+                    {
+                        id: 1,
+                        text: 'Обозначение <a href="https://en.wikipedia.org/wiki/Hermann%E2%80%93Mauguin_notation" target="_blank" rel="noreferrer">пространственной группы Германа-Могена</a>'
+                    },
+                    {
+                        id: 2,
+                        text: 'Использование <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/multiple" target="_blank" rel="noreferrer">раскрывающегося списка с множественным выбором</a>'
                     }
                 ]
             }

@@ -1,34 +1,76 @@
 export const LANGUAGES = {
+    de: [
+        { value: 'en', label: 'Englisch' },
+        { value: 'fr', label: 'Französisch' },
+        { value: 'de', label: 'Deutsch' },
+        { value: 'it', label: 'Italienisch' },
+        { value: 'ru', label: 'Russisch' },
+        { value: 'es', label: 'Spanisch' }
+    ],
     en: [
         { value: 'en', label: 'English' },
-        { value: 'es', label: 'Spanish' },
         { value: 'fr', label: 'French' },
-        { value: 'it', label: 'Italian' }
+        { value: 'de', label: 'German' },
+        { value: 'it', label: 'Italian' },
+        { value: 'ru', label: 'Russian' },
+        { value: 'es', label: 'Spanish' }
     ],
     es: [
+        { value: 'de', label: 'Alemán' },
         { value: 'en', label: 'Inglés' },
         { value: 'es', label: 'Español' },
         { value: 'fr', label: 'Francés' },
-        { value: 'it', label: 'Italiano' }
+        { value: 'it', label: 'Italiano' },
+        { value: 'ru', label: 'Ruso' }
     ],
     fr: [
+        { value: 'de', label: 'Allemand' },
         { value: 'en', label: 'Anglais' },
         { value: 'es', label: 'Espagnol' },
         { value: 'fr', label: 'Français' },
-        { value: 'it', label: 'Italien' }
+        { value: 'it', label: 'Italien' },
+        { value: 'ru', label: 'Russe' }
     ],
     it: [
+        { value: 'de', label: 'Tedesco' },
         { value: 'en', label: 'Inglese' },
         { value: 'es', label: 'Spagnolo' },
         { value: 'fr', label: 'Francese' },
-        { value: 'it', label: 'Italiano' }
-    ]
+        { value: 'it', label: 'Italiano' },
+        { value: 'ru', label: 'Russo' }
+    ],
+    ru: [
+        { value: 'en', label: 'Английский' },
+        { value: 'fr', label: 'Французский' },
+        { value: 'de', label: 'Немецкий' },
+        { value: 'it', label: 'Итальянский' },
+        { value: 'ru', label: 'Русский' },
+        { value: 'es', label: 'испанский' }
+    ],
 };
 
 export const TEXT_MAP = {
+    de: {
+        about: {
+            dvp: 'Über David',
+            cod: 'Über COD'
+        },
+        heading: 'Einstellungen',
+        label: {
+            languageUsed: 'Verwendete Sprache',
+            filenameModifier: 'Benutzerdefinierter Dateinamenmodifikator (Buchstaben/Zahlen/Unterstrich)',
+        },
+        button: 'Aktualisieren',
+        switch: '.cif-Modus',
+        storageEvent: {
+            success: 'Ihre aktualisierten Einstellungen wurden gespeichert',
+            fail: 'Es wurde kein Update durchgeführt'
+        },
+        noStorage: 'Lokale Speicherung wird von diesem Browser nicht unterstützt.'
+    },
     en: {
         about: {
-            dvp: 'About DVP',
+            dvp: 'About David',
             cod: 'About COD'
         },
         heading: 'Settings',
@@ -46,7 +88,7 @@ export const TEXT_MAP = {
     },
     es: {
         about: {
-            dvp: 'Acerca de DVP',
+            dvp: 'Acerca de David',
             cod: 'Acerca de COD'
         },
         heading: 'Ajustes',
@@ -64,7 +106,7 @@ export const TEXT_MAP = {
     },
     fr: {
         about: {
-            dvp: 'À propos DVP',
+            dvp: 'À propos David',
             cod: 'À propos COD'
         },
         heading: 'Paramètres',
@@ -82,7 +124,7 @@ export const TEXT_MAP = {
     },
     it: {
         about: {
-            dvp: 'Di DVP',
+            dvp: 'Di David',
             cod: 'Di COD'
         },
         heading: 'Impostazioni',
@@ -97,6 +139,24 @@ export const TEXT_MAP = {
             fail: 'Non è stato effettuato alcun aggiornamento'
         },
         noStorage: 'L\'archiviazone locale non è supportate da questo browser.'
+    },
+    ru: {
+        about: {
+            dvp: 'О Дэвиде',
+            cod: 'О COD'
+        },
+        heading: 'Настройки',
+        label: {
+            languageUsed: 'Используемый язык',
+            filenameModifier: 'Пользовательский модификатор имени файла (буквы/цифры/подчеркивание)'
+        },
+        button: 'Обновлять',
+        switch: 'Режим .cif',
+        storageEvent: {
+            success: 'Обновленные настройки сохранены.',
+            fail: 'Обновление не было сделано'
+        },
+        noStorage: 'Локальное хранилище не поддерживается этим браузером.'
     }
 };
 

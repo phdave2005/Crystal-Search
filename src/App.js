@@ -14,21 +14,29 @@ import svgA from './magnified-a.svg'
 
 const App = () => {
     const textMap = {
+        de: {
+            about: 'Über David',
+            aboutCod: 'Über COD'
+        },
         en: {
             about: 'About DVP',
             aboutCod: 'About COD'
         },
         es: {
-            about: 'Acerca de DVP',
+            about: 'Acerca de David',
             aboutCod: 'Acerca de COD'
         },
         fr: {
-            about: 'À propos DVP',
+            about: 'À propos David',
             aboutCod: 'À propos COD'
         },
         it: {
-            about: 'Di DVP',
+            about: 'Di Davide',
             aboutCod: 'Di COD'
+        },
+        ru: {
+            about: 'О Дэвиде',
+            aboutCod: 'О COD'
         }
     };
     const language =  window?.localStorage?.getItem("language-used") || 'en';

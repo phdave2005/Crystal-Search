@@ -1,4 +1,13 @@
 export const BRAVAIS_LATTICE_MAP = {
+    de: {
+        Triclinic: 'Triklinisch',
+        Monoclinic: 'Monoklin',
+        Orthorhombic: 'Orthorhombisch',
+        Tetragonal: 'Tetragonal',
+        Trigonal: 'Trigonal',
+        Hexagonal: 'Sechseckig',
+        Cubic: 'Kubisch'
+    },
     en: {
         Triclinic: 'Triclinic',
         Monoclinic: 'Monoclinic',
@@ -34,6 +43,15 @@ export const BRAVAIS_LATTICE_MAP = {
         Trigonal: 'Trigonale',
         Hexagonal: 'Esagonale',
         Cubic: 'Cubo'
+    },
+    ru: {
+        Triclinic: 'Триклиника',
+        Monoclinic: 'Моноклиника',
+        Orthorhombic: 'орторомбический',
+        Tetragonal: 'четырехугольный',
+        Trigonal: 'Треугольный',
+        Hexagonal: 'Шестиугольный',
+        Cubic: 'Кубический'
     }
 };
 

@@ -663,7 +663,11 @@ class Home extends Component {
                 }
             }
         }
-        if (!hasError) document.getElementById("main-grid-view").scrollTop = 0;
+        if (hasError) {
+            document.querySelectorAll(".flex-field.invalid")[0].parentElement.scrollIntoView();
+        } else {
+            document.getElementById("main-grid-view").scrollTop = 0;
+        }
         return hasError;
     }
 

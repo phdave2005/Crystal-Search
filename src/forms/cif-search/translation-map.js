@@ -1,4 +1,9 @@
 export const TEXT_MAP = {
+    de: {
+        labels: {
+            cifSearch: '.cif-Nummer'
+        }
+    },
     en: {
         labels: {
             cifSearch: '.cif Number'
@@ -17,6 +22,11 @@ export const TEXT_MAP = {
     it: {
         labels: {
             cifSearch: 'Numero .cif'
+        }
+    },
+    ru: {
+        labels: {
+            cifSearch: '.cif Номер'
         }
     }
 };

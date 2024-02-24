@@ -1,4 +1,14 @@
 export const TEXT_MAP = {
+    de: {
+        labels: {
+            fobs: 'Inklusive Fobs',
+            duplicates: 'Enthält Duplikate',
+            errors: 'Enthält Fehler',
+            theoretical: 'Beinhaltet Theorie',
+            idSet: 'ID eingestellt',
+            text: 'Metadaten-Schlüsselwort'
+        }
+    },
     en: {
         labels: {
             fobs: 'Includes Fobs',
@@ -38,7 +48,17 @@ export const TEXT_MAP = {
             idSet: 'ID impostato',
             text: 'Parola chiave metadati'
         }
-    }
+    },
+    ru: {
+        labels: {
+            fobs: 'Включает Fobs',
+            duplicates: 'Включает дубликаты',
+            errors: 'Включает ошибки',
+            theoretical: 'Включает теоретические',
+            idSet: 'Идентификатор установлен',
+            text: 'Ключевое слово метаданных'
+        }
+    },
 };
 
 export default TEXT_MAP;

@@ -1,4 +1,15 @@
 export const NAMED_COLORS = {
+    de: [
+        { value: 'black', label: 'schwarz' },
+        { value: 'blue', label: 'blau' },
+        { value: 'brown', label: 'braun' },
+        { value: 'colorless', label: 'farblos' },
+        { value: 'green', label: 'grün' },
+        { value: 'orange', label: 'orange' },
+        { value: 'red', label: 'rot' },
+        { value: 'violet', label: 'violett' },
+        { value: 'yellow', label: 'gelb' }
+    ],
     en: [
         { value: 'black', label: 'black' },
         { value: 'blue', label: 'blue' },
@@ -42,6 +53,17 @@ export const NAMED_COLORS = {
         { value: 'red', label: 'rosso' },
         { value: 'violet', label: 'viola' },
         { value: 'yellow', label: 'giallo' }
+    ],
+    ru: [
+        { value: 'black', label: 'черный' },
+        { value: 'blue', label: 'синий' },
+        { value: 'brown', label: 'коричневый' },
+        { value: 'colorless', label: 'бесцветный' },
+        { value: 'green', label: 'зеленый' },
+        { value: 'orange', label: 'апельсин' },
+        { value: 'red', label: 'красный' },
+        { value: 'violet', label: 'фиолетовый' },
+        { value: 'yellow', label: 'желтый' }
     ]
 };
 export default NAMED_COLORS;

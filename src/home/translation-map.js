@@ -1,4 +1,55 @@
 export const TEXT_MAP = {
+    de: {
+        download: {
+            data: 'daten'
+        },
+        heading: {
+            formula: 'Chemische Formelparameter',
+            lattice: 'Gitterparameter',
+            journal: 'Journalparameter',
+            additional: 'Zusätzliche Parameter',
+            filters: 'Filter',
+            cifSearch: 'Rufen Sie .cif-Daten direkt ab'
+        },
+        menu: {
+            heading: 'Suchparameter',
+            button: {
+                cifSearch: '.cif',
+                formula: 'Formel',
+                lattice: 'Gitter',
+                journal: 'Tagebuch',
+                additional: 'Zusätzlich',
+                filters: 'Filter',
+                reset: 'Zurücksetzen',
+                search: 'Suchen'
+            }
+        },
+        processing: {
+            text: 'Wird bearbeitet...'
+        },
+        validation: {
+            error: {
+                api: 'Beim Abrufen der Daten ist ein Fehler aufgetreten!',
+                noData: 'Diese Suchparameter lieferten keine Daten!',
+                oneParameter: 'Es muss mindestens ein Suchparameter verwendet werden!'
+            },
+            labels: {
+                chemicalFormula: 'Ungültige chemische Formel (Hill-Notation)',
+                cif: 'Benötigt wird eine gültige .cif-Kennung',
+                dateCannotExceedToday: 'Benötigen Sie das heutige Datum oder früher',
+                doi: 'Ungültiges DOI-Format',
+                elementPresentAbsentContradiction: 'Ein oder mehrere vorhandene Elemente werden ebenfalls als nicht vorhanden gesetzt',
+                idSet: 'Ungültiges Format für den Satz von COD-IDs',
+                minCannotExceedMax: 'Minimum übersteigt Maximum',
+                minDateCannotExceedMaxDate: 'Das Mindestdatum überschreitet das Höchstdatum',
+                positiveInteger: 'Benötigt Ganzzahl >= 1',
+                positiveNumber: 'Benötigte Nummer > 0'
+            },
+            success: {
+                downloaded: 'Ihre Suchdaten wurden heruntergeladen!'
+            }
+        }
+    },
     en: {
         download: {
             data: 'data'
@@ -200,6 +251,57 @@ export const TEXT_MAP = {
             },
             success: {
                 downloaded: 'I tuoi dati di ricerca sono stati scaricati!'
+            }
+        }
+    },
+    ru: {
+        download: {
+            data: 'данные'
+        },
+        heading: {
+            formula: 'Параметры химической формулы',
+            lattice: 'Параметры решетки',
+            journal: 'Параметры журнала',
+            additional: 'Дополнительные параметры',
+            filters: 'Фильтры',
+            cifSearch: 'Непосредственное получение данных .cif'
+        },
+        menu: {
+            heading: 'Параметры поиска',
+            button: {
+                cifSearch: '.cif',
+                formula: 'Формула',
+                lattice: 'Решетка',
+                journal: 'Журнал',
+                additional: 'Дополнительный',
+                filters: 'Фильтры',
+                reset: 'Перезагрузить',
+                search: 'Поиск'
+            }
+        },
+        processing: {
+            text: 'Обработка'
+        },
+        validation: {
+            error: {
+                api: 'При получении данных произошла ошибка!',
+                noData: 'Эти параметры поиска не вернули никаких данных!',
+                oneParameter: 'Необходимо использовать хотя бы один параметр поиска!'
+            },
+            labels: {
+                chemicalFormula: 'Неверная химическая формула (обозначение Хилла)',
+                cif: 'Нужен действительный идентификатор .cif.',
+                dateCannotExceedToday: 'Нужна сегодняшняя дата или более ранняя',
+                doi: 'Неверный формат DOI.',
+                elementPresentAbsentContradiction: 'Один или несколько присутствующих элементов также считаются отсутствующими.',
+                idSet: 'Неверный формат набора идентификаторов COD.',
+                minCannotExceedMax: 'Минимум превышает максимум',
+                minDateCannotExceedMaxDate: 'Минимальная дата превышает максимальную дату',
+                positiveInteger: 'Нужно целое число >= 1',
+                positiveNumber: 'Нужен номер > 0'
+            },
+            success: {
+                downloaded: 'Данные вашего поиска были загружены!'
             }
         }
     }

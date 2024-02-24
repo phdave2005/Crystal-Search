@@ -1,4 +1,38 @@
 export const TEXT_MAP = {
+    de: {
+        fieldset: {
+            simple: {
+                disordered: 'Ist ungeordnet',
+                mineral: 'Ist mineralisch',
+                powderDiffraction: 'Ist Pulverbeugung',
+                pressure: 'Beugung unter Druck',
+                title: 'Schlüsselwort für den Titel der Veröffentlichung',
+                commonName: 'Allgemeines Namensschlüsselwort',
+                chemicalName: 'Schlüsselwort für chemische Namen',
+                radType: 'Strahlungstyp',
+                maxSearchResults: {
+                    label: 'Beschränkung der Suchergebnisse',
+                    placeholder: 'Legen Sie das Ergebnislimit fest'
+                }
+            },
+            advanced: {
+                minDate: 'Startdatum',
+                maxDate: 'Endtermin',
+                minDensity: 'Mindestdichte',
+                maxDensity: 'Maximale Dichte',
+                minWeight: 'Mindestmolekulargewicht',
+                maxWeight: 'Maximales Molekulargewicht',
+                minR: 'Mindest-R-Faktor (alle)',
+                maxR: 'Maximaler R-Faktor (alle)',
+                crystalColor: 'Kristallfarbe'
+            }
+        },
+        legend: {
+            simple: 'EINFACH',
+            advanced: 'FORTSCHRITTLICH'
+        },
+        selectDefault: 'Wählen'
+    },
     en: {
         fieldset: {
             simple: {
@@ -134,6 +168,40 @@ export const TEXT_MAP = {
             advanced: 'AVANZATI'
         },
         selectDefault: 'Selezionare'
+    },
+    ru: {
+        fieldset: {
+            simple: {
+                disordered: 'Расстроен',
+                mineral: 'Минерал',
+                powderDiffraction: 'Порошковая дифракция',
+                pressure: 'Дифракция под давлением',
+                title: 'Ключевое слово в названии публикации',
+                commonName: 'Ключевое слово общего имени',
+                chemicalName: 'Ключевое слово химического названия',
+                radType: 'Тип излучения',
+                maxSearchResults: {
+                    label: 'Ограничение результатов поиска',
+                    placeholder: 'Установите предел результатов'
+                }
+            },
+            advanced: {
+                minDate: 'Дата начала',
+                maxDate: 'Дата окончания',
+                minDensity: 'Минимальная плотность',
+                maxDensity: 'Максимальная плотность',
+                minWeight: 'Минимальная молекулярная масса',
+                maxWeight: 'Максимальная молекулярная масса',
+                minR: 'Минимальный R-фактор (все)',
+                maxR: 'Максимальный R-фактор (все)',
+                crystalColor: 'Кристаллический цвет'
+            }
+        },
+        legend: {
+            simple: 'ПРОСТОЙ',
+            advanced: 'ПЕРЕДОВОЙ'
+        },
+        selectDefault: 'Выбирать'
     }
 };
 
