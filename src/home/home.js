@@ -509,7 +509,7 @@ class Home extends Component {
             p,
             extractedElementSymbol;
         const splitFormula = formula.split(" ");
-        const periodicTableData = PERIODIC_TABLE_DATA.ELEMENTS;
+        const periodicTableData = PERIODIC_TABLE_DATA.ELEMENTS[this.language];
         const filteredElementSymbols = [];
         splitFormula.forEach((fragment) => {
             if (!fragment.match(/^[A-Za-z]+(\d+)?$/i)) {
